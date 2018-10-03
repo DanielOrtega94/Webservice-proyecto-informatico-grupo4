@@ -58,7 +58,7 @@ class equipos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function partidos()
+    public function contrincante1()
     {
         return $this->hasMany('App\Partido', 'equipo_1', 'equipoid');
     }
@@ -66,7 +66,7 @@ class equipos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function partidos()
+    public function contrincante2()
     {
         return $this->hasMany('App\Partido', 'equipo_2', 'equipoid');
     }
@@ -74,7 +74,7 @@ class equipos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function partidos()
+    public function ganador()
     {
         return $this->hasMany('App\Partido', 'ganador', 'equipoid');
     }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ArbitrosController extends Controller
 {
 
-    use App\usuarios;
+
     /**
      * Display a listing of the resource.
      *
