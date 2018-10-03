@@ -43,9 +43,10 @@ class PartidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+     public function show()
     {
-        //
+        $usuarios=partido::all();
+        return response()->json($usuarios);
     }
 
     /**
