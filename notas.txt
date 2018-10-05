@@ -12,6 +12,12 @@ php artisan krlove:generate:model arbitros
 php artisan krlove:generate:model arbitrajes
 
 
+
+php artisan krlove:generate:model subscripciones
+php artisan krlove:generate:model noticias
+php artisan krlove:generate:model imagenes
+
+
 php artisan make:controller LugaresController --resource
 php artisan make:controller UsuariosController --resource
 php artisan make:controller EquiposController --resource
@@ -24,6 +30,16 @@ php artisan make:controller DeportesController --resource
 php artisan make:controller PartidoController --resource
 php artisan make:controller ArbitrosController --resource
 php artisan make:controller ArbitrajesController --resource
+
+
+
+php artisan krlove:generate:model subscripciones
+php artisan krlove:generate:model noticias
+php artisan krlove:generate:model imagenes
+php artisan make:controller SubscripcionesController --resource
+php artisan make:controller NoticiasController --resource
+php artisan make:controller ImagenesController --resource
+
 
 # agregar los use
 #crear los metodos y agregar las rutas correspondientes
@@ -51,3 +67,18 @@ https://www.000webhost.com/forum/t/wrong-com-stmt-prepare-response-size-received
 https://databases.000webhost.com/
 id7158914_proyinf4
 asd123
+
+
+
+CON RESPECTO A LA BASE DE DATOS DEBEMOS
+para obtener los nombres de  las restricciones hacemos 
+
+SELECT 
+    TABLE_SCHEMA, 
+    TABLE_NAME, 
+    CONSTRAINT_NAME 
+FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+WHERE CONSTRAINT_NAME<>'PRIMARY' 
+ORDER BY CONSTRAINT_NAME;
+
+En mysql workbench es cambiar los nombres en foreing keys

@@ -1,7 +1,3 @@
-
-
-
-
 INSERT INTO `deportes` (`deporteid`, `nombre`) VALUES
 (1, 'Futbol'),
 (2, 'Baby Futbol'),
