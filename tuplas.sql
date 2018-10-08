@@ -1,19 +1,16 @@
-INSERT INTO `deportes` (`deporteid`, `nombre`) VALUES
+INSERT INTO `deportes` (`id`, `nombre`) VALUES
 (1, 'Futbol'),
 (2, 'Baby Futbol'),
 (3, 'Basquetbol');
 
 
-INSERT INTO `divisiones` (`divisionid`, `deporteid`, `nombre`) VALUES
+
+INSERT INTO `divisiones` (`id`, `deporteid`, `nombre`) VALUES
 (1, 1, 'Primera Division'),
 (2, 1, 'Segunda Division');
 
-INSERT INTO `campeonatos` (`campeonatoid`, `divisionid`, `ano`, `nombre`, `semestre`, `campeon`, `fecha_inicio`, `fecha_termino`, `reglamento`) VALUES
-(1, 1, 2018, 'Torneo de Verano', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
-(2, 2, 2018, 'Torneo de Verano Segunda Division', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL);
 
-
-INSERT INTO `equipos` (`equipoid`, `divisionid`, `nombre`, `carrera`, `facultad`) VALUES
+INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALUES
 (1, 2, 'Informatica', 'Ingenieria civil Informatica', 'Ingenieria'),
 (2, 2, 'DIE', 'Ingenieria civil Electrica', 'Ingenieria'),
 (3, 2, 'Quimica', 'Ingenieria civil Quimica', 'Ingenieria'),
@@ -52,7 +49,7 @@ INSERT INTO `equipos` (`equipoid`, `divisionid`, `nombre`, `carrera`, `facultad`
 (36, 1, 'Civil', 'Ingenieria Civil', 'Ingenieria');
 
 
-INSERT INTO `jugadores` (`jugadorid`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALUES
+INSERT INTO `jugadores` (`id`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALUES
 (1, 1, 'Jeremias Torres', 23, 2013),
 (2, 2, 'Juan Ignacio Burgos', 20, 2017),
 (3, 1, 'Abelardo Norambuena', 23, 2014),
@@ -124,34 +121,544 @@ INSERT INTO `jugadores` (`jugadorid`, `equipoid`, `nombre`, `edad`, `ano_ingreso
 (69, 36, 'Felipe Vidal', 23, 2015),
 (70, 36, 'Alberto Romero', 23, 2014);
 
-INSERT INTO `lugares` (`lugarid`, `nombre`, `ubicacion`, `capacidad`) VALUES
+INSERT INTO `lugares` (`id`, `nombre`, `ubicacion`, `capacidad`) VALUES
 (1, 'Cancha sintetica Universidad de Concepcion', NULL, '50000 espectadores'),
 (2, 'Cancha de Hockey', 'Al lado del edificio Virginio Gomez', '200000 espectadores'),
 (3, 'Jaulas', 'Estadio UdeC', '2 personas');
 
 
 
-INSERT INTO `sanciones` (`sancionid`, `jugadorid`, `tiempo`, `comentario`) VALUES
-(1, 1, '25 fechas', 'Por buen tipo');
-INSERT INTO `partidos` (`partidoid`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `ganador`, `fecha`, `hora`) VALUES
+INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `ganador`, `fecha`, `hora`) VALUES
 (1, 1, 2, 1, 1, NULL, '2018-08-28', '15:00 hrs');
+
+INSERT INTO `arbitros` (`id`, `nombre`, `carrera`, `fecha_ingreso`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Nicolas Pavez', 'Ingenieria civil Industrial', '2018-09-10', NULL, NULL, NULL),
+(2, 'Franco Roca', 'Ingenieria civil Metalurgica', '2018-09-02', NULL, NULL, NULL),
+(3, 'Diego Pino', 'Educacion Fisica', '2018-09-02', NULL, NULL, NULL);
+
+
+INSERT INTO `arbitrajes` (`partidoid`, `arbitroid`, `tipo`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Juez Central', NULL, NULL, NULL);
+
+INSERT INTO `campeonatos` (`id`, `divisionid`, `ano`, `nombre`, `semestre`, `campeon`, `fecha_inicio`, `fecha_termino`, `reglamento`) VALUES
+(1, 1, 2018, 'Torneo de Verano', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
+(2, 2, 2018, 'Torneo de Verano Segunda Division', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL);
+
+
+
+INSERT INTO `sanciones` (`id`, `jugadorid`, `tiempo`, `comentario`) VALUES
+(1, 1, '25 fechas', 'Por buen tipo');
+
+INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`, `admin`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Daniel Ortega', 'chilotesensual@llamame.cl', 'elcostillaresmio', NULL, NULL, NULL, NULL),
+(2, 'Julio Zapata', NULL, '12345678', NULL, NULL, NULL, NULL),
+(3, 'Julio Zapata', NULL, '12345678', NULL, NULL, NULL, NULL),
+(4, 'fzf Zapata', NULL, 'fexrer42', NULL, NULL, NULL, NULL),
+(5, 'asdfasdfasdf Zapata', NULL, 'pass', NULL, NULL, NULL, NULL);
 
 INSERT INTO `partido_jugadors` (`partidoid`, `jugadorid`, `puntos`, `triples`, `amarilla`, `roja`, `faltas_b`) VALUES
 (1, 1, 3, 0, 1, 0, 0);
 
 
-INSERT INTO `arbitros` (`arbitroid`, `nombre`, `carrera`, `fecha_ingreso`) VALUES
-(1, 'Nicolas Pavez', 'Ingenieria civil Industrial', '2018-09-10'),
-(2, 'Franco Roca', 'Ingenieria civil Metalurgica', '2018-09-02'),
-(3, 'Diego Pino', 'Educacion Fisica', '2018-09-02');
 
-INSERT INTO `arbitrajes` (`partidoid`, `arbitroid`, `tipo`) VALUES
-(1, 1, 'Juez Central');
+INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
+(1, 'browse_admin', NULL, '2018-10-06 06:56:51', '2018-10-06 06:56:51'),
+(2, 'browse_bread', NULL, '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(3, 'browse_database', NULL, '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(4, 'browse_media', NULL, '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(5, 'browse_compass', NULL, '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(6, 'browse_menus', 'menus', '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(7, 'read_menus', 'menus', '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(8, 'edit_menus', 'menus', '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(9, 'add_menus', 'menus', '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(10, 'delete_menus', 'menus', '2018-10-06 06:56:52', '2018-10-06 06:56:52'),
+(11, 'browse_roles', 'roles', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(12, 'read_roles', 'roles', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(13, 'edit_roles', 'roles', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(14, 'add_roles', 'roles', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(15, 'delete_roles', 'roles', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(16, 'browse_users', 'users', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(17, 'read_users', 'users', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(18, 'edit_users', 'users', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(19, 'add_users', 'users', '2018-10-06 06:56:53', '2018-10-06 06:56:53'),
+(20, 'delete_users', 'users', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(21, 'browse_settings', 'settings', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(22, 'read_settings', 'settings', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(23, 'edit_settings', 'settings', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(24, 'add_settings', 'settings', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(25, 'delete_settings', 'settings', '2018-10-06 06:56:54', '2018-10-06 06:56:54'),
+(26, 'browse_hooks', NULL, '2018-10-06 06:56:57', '2018-10-06 06:56:57'),
+(27, 'browse_arbitros', 'arbitros', '2018-10-06 07:29:33', '2018-10-06 07:29:33'),
+(28, 'read_arbitros', 'arbitros', '2018-10-06 07:29:33', '2018-10-06 07:29:33'),
+(29, 'edit_arbitros', 'arbitros', '2018-10-06 07:29:33', '2018-10-06 07:29:33'),
+(30, 'add_arbitros', 'arbitros', '2018-10-06 07:29:33', '2018-10-06 07:29:33'),
+(31, 'delete_arbitros', 'arbitros', '2018-10-06 07:29:33', '2018-10-06 07:29:33'),
+(32, 'browse_campeonatos', 'campeonatos', '2018-10-06 07:32:22', '2018-10-06 07:32:22'),
+(33, 'read_campeonatos', 'campeonatos', '2018-10-06 07:32:22', '2018-10-06 07:32:22'),
+(34, 'edit_campeonatos', 'campeonatos', '2018-10-06 07:32:22', '2018-10-06 07:32:22'),
+(35, 'add_campeonatos', 'campeonatos', '2018-10-06 07:32:22', '2018-10-06 07:32:22'),
+(36, 'delete_campeonatos', 'campeonatos', '2018-10-06 07:32:22', '2018-10-06 07:32:22'),
+(37, 'browse_jugadores', 'jugadores', '2018-10-06 07:34:46', '2018-10-06 07:34:46'),
+(38, 'read_jugadores', 'jugadores', '2018-10-06 07:34:47', '2018-10-06 07:34:47'),
+(39, 'edit_jugadores', 'jugadores', '2018-10-06 07:34:47', '2018-10-06 07:34:47'),
+(40, 'add_jugadores', 'jugadores', '2018-10-06 07:34:47', '2018-10-06 07:34:47'),
+(41, 'delete_jugadores', 'jugadores', '2018-10-06 07:34:47', '2018-10-06 07:34:47'),
+(42, 'browse_equipos', 'equipos', '2018-10-06 07:35:49', '2018-10-06 07:35:49'),
+(43, 'read_equipos', 'equipos', '2018-10-06 07:35:49', '2018-10-06 07:35:49'),
+(44, 'edit_equipos', 'equipos', '2018-10-06 07:35:49', '2018-10-06 07:35:49'),
+(45, 'add_equipos', 'equipos', '2018-10-06 07:35:49', '2018-10-06 07:35:49'),
+(46, 'delete_equipos', 'equipos', '2018-10-06 07:35:49', '2018-10-06 07:35:49'),
+(47, 'browse_divisiones', 'divisiones', '2018-10-06 07:37:03', '2018-10-06 07:37:03'),
+(48, 'read_divisiones', 'divisiones', '2018-10-06 07:37:03', '2018-10-06 07:37:03'),
+(49, 'edit_divisiones', 'divisiones', '2018-10-06 07:37:03', '2018-10-06 07:37:03'),
+(50, 'add_divisiones', 'divisiones', '2018-10-06 07:37:04', '2018-10-06 07:37:04'),
+(51, 'delete_divisiones', 'divisiones', '2018-10-06 07:37:04', '2018-10-06 07:37:04'),
+(52, 'browse_lugares', 'lugares', '2018-10-06 07:37:22', '2018-10-06 07:37:22'),
+(53, 'read_lugares', 'lugares', '2018-10-06 07:37:22', '2018-10-06 07:37:22'),
+(54, 'edit_lugares', 'lugares', '2018-10-06 07:37:22', '2018-10-06 07:37:22'),
+(55, 'add_lugares', 'lugares', '2018-10-06 07:37:22', '2018-10-06 07:37:22'),
+(56, 'delete_lugares', 'lugares', '2018-10-06 07:37:22', '2018-10-06 07:37:22'),
+(57, 'browse_deportes', 'deportes', '2018-10-06 07:38:27', '2018-10-06 07:38:27'),
+(58, 'read_deportes', 'deportes', '2018-10-06 07:38:28', '2018-10-06 07:38:28'),
+(59, 'edit_deportes', 'deportes', '2018-10-06 07:38:28', '2018-10-06 07:38:28'),
+(60, 'add_deportes', 'deportes', '2018-10-06 07:38:28', '2018-10-06 07:38:28'),
+(61, 'delete_deportes', 'deportes', '2018-10-06 07:38:28', '2018-10-06 07:38:28'),
+(62, 'browse_subscripciones', 'subscripciones', '2018-10-06 07:41:27', '2018-10-06 07:41:27'),
+(63, 'read_subscripciones', 'subscripciones', '2018-10-06 07:41:27', '2018-10-06 07:41:27'),
+(64, 'edit_subscripciones', 'subscripciones', '2018-10-06 07:41:27', '2018-10-06 07:41:27'),
+(65, 'add_subscripciones', 'subscripciones', '2018-10-06 07:41:27', '2018-10-06 07:41:27'),
+(66, 'delete_subscripciones', 'subscripciones', '2018-10-06 07:41:27', '2018-10-06 07:41:27'),
+(67, 'browse_sanciones', 'sanciones', '2018-10-06 07:42:48', '2018-10-06 07:42:48'),
+(68, 'read_sanciones', 'sanciones', '2018-10-06 07:42:48', '2018-10-06 07:42:48'),
+(69, 'edit_sanciones', 'sanciones', '2018-10-06 07:42:48', '2018-10-06 07:42:48'),
+(70, 'add_sanciones', 'sanciones', '2018-10-06 07:42:48', '2018-10-06 07:42:48'),
+(71, 'delete_sanciones', 'sanciones', '2018-10-06 07:42:48', '2018-10-06 07:42:48'),
+(72, 'browse_partidos', 'partidos', '2018-10-06 07:43:15', '2018-10-06 07:43:15'),
+(73, 'read_partidos', 'partidos', '2018-10-06 07:43:15', '2018-10-06 07:43:15'),
+(74, 'edit_partidos', 'partidos', '2018-10-06 07:43:16', '2018-10-06 07:43:16'),
+(75, 'add_partidos', 'partidos', '2018-10-06 07:43:16', '2018-10-06 07:43:16'),
+(76, 'delete_partidos', 'partidos', '2018-10-06 07:43:17', '2018-10-06 07:43:17'),
+(77, 'browse_noticias', 'noticias', '2018-10-06 07:44:02', '2018-10-06 07:44:02'),
+(78, 'read_noticias', 'noticias', '2018-10-06 07:44:02', '2018-10-06 07:44:02'),
+(79, 'edit_noticias', 'noticias', '2018-10-06 07:44:02', '2018-10-06 07:44:02'),
+(80, 'add_noticias', 'noticias', '2018-10-06 07:44:03', '2018-10-06 07:44:03'),
+(81, 'delete_noticias', 'noticias', '2018-10-06 07:44:03', '2018-10-06 07:44:03'),
+(82, 'browse_blog_posts', NULL, '2018-10-06 17:40:52', '2018-10-06 17:40:52'),
+(83, 'read_blog_posts', NULL, '2018-10-06 17:40:53', '2018-10-06 17:40:53'),
+(84, 'edit_blog_posts', NULL, '2018-10-06 17:40:53', '2018-10-06 17:40:53'),
+(85, 'add_blog_posts', NULL, '2018-10-06 17:40:53', '2018-10-06 17:40:53'),
+(86, 'delete_blog_posts', NULL, '2018-10-06 17:40:53', '2018-10-06 17:40:53'),
+(87, 'browse_blog_posts', 'blog_posts', '2018-10-06 17:40:54', '2018-10-06 17:40:54'),
+(88, 'read_blog_posts', 'blog_posts', '2018-10-06 17:40:54', '2018-10-06 17:40:54'),
+(89, 'edit_blog_posts', 'blog_posts', '2018-10-06 17:40:54', '2018-10-06 17:40:54'),
+(90, 'add_blog_posts', 'blog_posts', '2018-10-06 17:40:55', '2018-10-06 17:40:55'),
+(91, 'delete_blog_posts', 'blog_posts', '2018-10-06 17:40:55', '2018-10-06 17:40:55'),
+(92, 'browse_categories', 'categories', '2018-10-06 17:41:02', '2018-10-06 17:41:02'),
+(93, 'read_categories', 'categories', '2018-10-06 17:41:03', '2018-10-06 17:41:03'),
+(94, 'edit_categories', 'categories', '2018-10-06 17:41:03', '2018-10-06 17:41:03'),
+(95, 'add_categories', 'categories', '2018-10-06 17:41:03', '2018-10-06 17:41:03'),
+(96, 'delete_categories', 'categories', '2018-10-06 17:41:03', '2018-10-06 17:41:03'),
+(97, 'browse_pages', NULL, '2018-10-06 17:41:15', '2018-10-06 17:41:15'),
+(98, 'read_pages', NULL, '2018-10-06 17:41:15', '2018-10-06 17:41:15'),
+(99, 'edit_pages', NULL, '2018-10-06 17:41:16', '2018-10-06 17:41:16'),
+(100, 'add_pages', NULL, '2018-10-06 17:41:16', '2018-10-06 17:41:16'),
+(101, 'delete_pages', NULL, '2018-10-06 17:41:16', '2018-10-06 17:41:16'),
+(102, 'browse_pages', 'pages', '2018-10-06 17:41:16', '2018-10-06 17:41:16'),
+(103, 'read_pages', 'pages', '2018-10-06 17:41:17', '2018-10-06 17:41:17'),
+(104, 'edit_pages', 'pages', '2018-10-06 17:41:17', '2018-10-06 17:41:17'),
+(105, 'add_pages', 'pages', '2018-10-06 17:41:17', '2018-10-06 17:41:17'),
+(106, 'delete_pages', 'pages', '2018-10-06 17:41:17', '2018-10-06 17:41:17');
 
-INSERT INTO `usuarios` (`usuarioid`, `nombre`, `correo`, `password`, `admin`) VALUES
-(1, 'Daniel Ortega', 'chilotesensual@llamame.cl', 'elcostillaresmio', NULL),
-(2, 'Julio Zapata', NULL, '12345678', NULL),
-(3, 'Julio Zapata', NULL, '12345678', NULL),
-(4, 'fzf Zapata', NULL, 'fexrer42', NULL),
-(5, 'asdfasdfasdf Zapata', NULL, 'pass', NULL);
+
+
+INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, 'Category 1', 'category-1', '2018-10-06 17:41:04', '2018-10-06 17:41:04'),
+(2, NULL, 1, 'Category 2', 'category-2', '2018-10-06 17:41:04', '2018-10-06 17:41:04');
+
+--
+-- Volcado de datos para la tabla `data_rows`
+--
+
+
+INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '', '', 1, 0, NULL, '2018-10-06 06:56:47', '2018-10-06 06:56:47'),
+(2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2018-10-06 06:56:47', '2018-10-06 06:56:47'),
+(3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2018-10-06 06:56:47', '2018-10-06 06:56:47'),
+(6, 'arbitros', 'arbitros', 'Arbitro', 'Arbitros', 'voyager-person', 'App\\Arbitro', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"nombre\",\"order_display_column\":null}', '2018-10-06 07:29:32', '2018-10-06 07:29:32'),
+(7, 'campeonatos', 'campeonatos', 'Campeonato', 'Campeonatos', NULL, 'App\\Campeonato', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:32:19', '2018-10-06 07:32:19'),
+(8, 'jugadores', 'jugadores', 'Jugadore', 'Jugadores', 'voyager-person', 'App\\Jugadore', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:34:46', '2018-10-06 07:34:46'),
+(9, 'equipos', 'equipos', 'Equipo', 'Equipos', 'voyager-people', 'App\\Equipo', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:35:48', '2018-10-06 07:35:48'),
+(10, 'divisiones', 'divisiones', 'Divisione', 'Divisiones', 'voyager-lighthouse', 'App\\Divisione', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:37:03', '2018-10-06 07:37:03'),
+(11, 'lugares', 'lugares', 'Lugare', 'Lugares', 'voyager-window-list', 'App\\Lugare', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:37:21', '2018-10-06 07:37:21'),
+(12, 'deportes', 'deportes', 'Deporte', 'Deportes', 'voyager-pirate', 'App\\Deporte', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:38:27', '2018-10-06 07:38:27'),
+(13, 'subscripciones', 'subscripciones', 'Subscripcione', 'Subscripciones', NULL, 'App\\Subscripcione', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:41:26', '2018-10-06 07:41:26'),
+(14, 'sanciones', 'sanciones', 'Sancione', 'Sanciones', NULL, 'App\\Sancione', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:42:47', '2018-10-06 07:42:47'),
+(19, 'partidos', 'partidos', 'Partido', 'Partidos', NULL, 'App\\Partido', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:43:13', '2018-10-06 07:43:13'),
+(20, 'noticias', 'noticias', 'Noticia', 'Noticias', NULL, 'App\\Noticia', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-10-06 07:44:01', '2018-10-06 07:44:01'),
+(21, 'blog_posts', 'blog_posts', 'Blog Post', 'Blog Posts', 'voyager-news', 'Pvtl\\VoyagerFrontend\\BlogPost', NULL, '\\Pvtl\\VoyagerFrontend\\Http\\Controllers\\PostController', '', 1, 0, NULL, '2018-10-06 17:40:43', '2018-10-06 17:41:20'),
+(22, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'Pvtl\\VoyagerBlog\\Category', NULL, '\\TCG\\Voyager\\Http\\Controllers\\VoyagerBaseController', '', 1, 0, NULL, '2018-10-06 17:40:59', '2018-10-06 17:40:59'),
+(23, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'Pvtl\\VoyagerFrontend\\Page', NULL, '\\Pvtl\\VoyagerFrontend\\Http\\Controllers\\PageController', '', 1, 0, NULL, '2018-10-06 17:41:12', '2018-10-06 17:41:19');
+
+
+
+INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
+(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
+(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '', 2),
+(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '', 3),
+(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, '', 4),
+(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '', 5),
+(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '', 6),
+(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 7),
+(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '', 8),
+(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\"}', 10),
+(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
+(11, 1, 'locale', 'text', 'Locale', 0, 1, 1, 1, 1, 0, '', 12),
+(12, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '', 12),
+(13, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
+(14, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '', 2),
+(15, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '', 3),
+(16, 2, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 4),
+(17, 3, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
+(18, 3, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '', 2),
+(19, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '', 3),
+(20, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 4),
+(21, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, '', 5),
+(22, 1, 'role_id', 'text', 'Role', 1, 1, 1, 1, 1, 1, '', 9),
+(23, 6, 'arbitroid', 'text', 'Arbitroid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(24, 6, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(25, 6, 'carrera', 'text', 'Carrera', 0, 1, 1, 1, 1, 1, NULL, 3),
+(26, 6, 'fecha_ingreso', 'date', 'Fecha Ingreso', 0, 1, 1, 1, 1, 1, NULL, 4),
+(27, 7, 'campeonatoid', 'text', 'Campeonatoid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(28, 7, 'divisionid', 'text', 'Divisionid', 0, 1, 1, 1, 1, 1, NULL, 2),
+(29, 7, 'ano', 'text', 'Ano', 0, 1, 1, 1, 1, 1, NULL, 4),
+(30, 7, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 5),
+(31, 7, 'semestre', 'text', 'Semestre', 0, 1, 1, 1, 1, 1, NULL, 6),
+(32, 7, 'campeon', 'text', 'Campeon', 0, 1, 1, 1, 1, 1, NULL, 3),
+(33, 7, 'fecha_inicio', 'text', 'Fecha Inicio', 0, 1, 1, 1, 1, 1, NULL, 7),
+(34, 7, 'fecha_termino', 'text', 'Fecha Termino', 0, 1, 1, 1, 1, 1, NULL, 8),
+(35, 7, 'reglamento', 'text', 'Reglamento', 0, 1, 1, 1, 1, 1, NULL, 9),
+(36, 8, 'jugadorid', 'text', 'Jugadorid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(37, 8, 'equipoid', 'text', 'Equipoid', 1, 1, 1, 1, 1, 1, NULL, 2),
+(38, 8, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 3),
+(39, 8, 'edad', 'text', 'Edad', 0, 1, 1, 1, 1, 1, NULL, 4),
+(40, 8, 'ano_ingreso', 'text', 'Ano Ingreso', 0, 1, 1, 1, 1, 1, NULL, 5),
+(41, 9, 'equipoid', 'text', 'Equipoid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(42, 9, 'divisionid', 'text', 'Divisionid', 0, 1, 1, 1, 1, 1, NULL, 2),
+(43, 9, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 3),
+(44, 9, 'carrera', 'text', 'Carrera', 0, 1, 1, 1, 1, 1, NULL, 4),
+(45, 9, 'facultad', 'text', 'Facultad', 0, 1, 1, 1, 1, 1, NULL, 5),
+(47, 10, 'deporteid', 'text', 'Deporteid', 0, 0, 0, 0, 0, 0, NULL, 2),
+(48, 10, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 3),
+(49, 11, 'lugarid', 'text', 'Lugarid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(50, 11, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(51, 11, 'ubicacion', 'text', 'Ubicacion', 0, 1, 1, 1, 1, 1, NULL, 3),
+(52, 11, 'capacidad', 'text', 'Capacidad', 0, 1, 1, 1, 1, 1, NULL, 4),
+(53, 12, 'deporteid', 'text', 'Deporteid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(54, 12, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(55, 13, 'idSubscripcion', 'text', 'IdSubscripcion', 1, 0, 0, 0, 0, 0, NULL, 3),
+(56, 13, 'usuarioid', 'text', 'Usuarioid', 0, 0, 0, 0, 0, 0, NULL, 1),
+(57, 13, 'equipoid', 'text', 'Equipoid', 0, 1, 1, 1, 1, 1, NULL, 2),
+(58, 13, 'fecha', 'text', 'Fecha', 0, 1, 1, 1, 1, 1, NULL, 4),
+(59, 14, 'sancionid', 'text', 'Sancionid', 1, 1, 1, 1, 1, 1, NULL, 1),
+(60, 14, 'jugadorid', 'text', 'Jugadorid', 1, 1, 1, 1, 1, 1, NULL, 2),
+(61, 14, 'tiempo', 'text', 'Tiempo', 0, 1, 1, 1, 1, 1, NULL, 3),
+(62, 14, 'comentario', 'text', 'Comentario', 0, 1, 1, 1, 1, 1, NULL, 4),
+(63, 19, 'partidoid', 'text', 'Partidoid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(64, 19, 'equipo_1', 'text', 'Equipo 1', 0, 1, 1, 1, 1, 1, NULL, 2),
+(65, 19, 'equipo_2', 'text', 'Equipo 2', 0, 1, 1, 1, 1, 1, NULL, 3),
+(66, 19, 'divisionid', 'text', 'Divisionid', 0, 1, 1, 1, 1, 1, NULL, 4),
+(67, 19, 'lugarid', 'text', 'Lugarid', 0, 1, 1, 1, 1, 1, NULL, 5),
+(68, 19, 'ganador', 'text', 'Ganador', 0, 1, 1, 1, 1, 1, NULL, 6),
+(69, 19, 'fecha', 'date', 'Fecha', 0, 1, 1, 1, 1, 1, NULL, 7),
+(70, 19, 'hora', 'time', 'Hora', 0, 1, 1, 1, 1, 1, NULL, 8),
+(71, 20, 'noticiaid', 'text', 'Noticiaid', 1, 0, 0, 0, 0, 0, NULL, 1),
+(72, 20, 'deporteid', 'text', 'Deporteid', 0, 1, 1, 1, 1, 1, NULL, 2),
+(73, 20, 'texto', 'text', 'Texto', 0, 1, 1, 1, 1, 1, NULL, 3),
+(74, 10, 'divisione_hasone_deporte_relationship', 'relationship', 'deportes', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Deporte\",\"table\":\"deportes\",\"type\":\"hasOne\",\"column\":\"id\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"arbitrajes\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(78, 21, 'author_id', 'select_dropdown', 'Author', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
+(79, 21, 'category_id', 'select_dropdown', 'Category', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
+(80, 21, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
+(81, 21, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '', 4),
+(82, 21, 'excerpt', 'text_area', 'excerpt', 1, 0, 1, 1, 1, 1, '', 5),
+(83, 21, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, '', 6),
+(84, 21, 'image', 'image', 'Post Image', 0, 1, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\",\"height\":\"null\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 7),
+(85, 21, 'slug', 'text', 'slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:blog_posts,slug\"}}', 8),
+(86, 21, 'meta_description', 'text_area', 'meta_description', 0, 0, 1, 1, 1, 1, '', 9),
+(87, 21, 'status', 'select_dropdown', 'status', 1, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 11),
+(88, 21, 'created_at', 'timestamp', 'created_at', 0, 1, 1, 0, 0, 0, '', 12),
+(89, 21, 'updated_at', 'timestamp', 'updated_at', 0, 0, 0, 0, 0, 0, '', 13),
+(90, 21, 'tags', 'text_area', 'Tags', 0, 0, 1, 1, 1, 1, '', 14),
+(91, 21, 'published_date', 'date', 'Published Date', 0, 1, 1, 1, 1, 1, '{\"format\":\"%Y-%m-%d\",\"validation\":{\"rules\":[\"required_if:status:PUBLISHED\",\"date_format:YYYY-MM-DD\"]}}', 15),
+(92, 22, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
+(93, 22, 'parent_id', 'select_dropdown', 'Parent', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
+(94, 22, 'order', 'text', 'Order', 1, 1, 1, 1, 1, 1, '{\"default\":1}', 3),
+(95, 22, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '', 4),
+(96, 22, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\"}}', 5),
+(97, 22, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '', 6),
+(98, 22, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 7),
+(99, 23, 'id', 'number', 'id', 1, 0, 0, 0, 0, 0, '', 1),
+(100, 23, 'author_id', 'text', 'author_id', 1, 0, 0, 0, 0, 0, '', 2),
+(101, 23, 'title', 'text', 'title', 1, 1, 1, 1, 1, 1, '', 3),
+(102, 23, 'excerpt', 'text_area', 'excerpt', 1, 0, 1, 1, 1, 1, '', 4),
+(103, 23, 'body', 'rich_text_box', 'body', 1, 0, 1, 1, 1, 1, '', 5),
+(104, 23, 'slug', 'text', 'slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\"},\"validation\":{\"rule\":\"unique:pages,slug\"}}', 6),
+(105, 23, 'meta_description', 'text', 'meta_description', 1, 0, 1, 1, 1, 1, '', 7),
+(106, 23, 'status', 'select_dropdown', 'status', 1, 1, 1, 1, 1, 1, '{\"default\":\"INACTIVE\",\"options\":{\"INACTIVE\":\"INACTIVE\",\"ACTIVE\":\"ACTIVE\"}}', 9),
+(107, 23, 'created_at', 'timestamp', 'created_at', 1, 1, 1, 0, 0, 0, '', 10),
+(108, 23, 'updated_at', 'timestamp', 'updated_at', 1, 0, 0, 0, 0, 0, '', 11),
+(109, 23, 'image', 'image', 'image', 0, 1, 1, 1, 1, 1, '', 12),
+(110, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(111, 8, 'jugadore_belongsto_equipo_relationship', 'relationship', 'equipos', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Equipo\",\"table\":\"equipos\",\"type\":\"belongsTo\",\"column\":\"equipoid\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"arbitrajes\",\"pivot\":\"0\",\"taggable\":null}', 6);
+
+--
+-- Volcado de datos para la tabla `data_types`
+--
+
+
+INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '2018-10-06 06:56:50', '2018-10-06 06:56:50'),
+(2, 'primary', '2018-10-06 17:41:20', '2018-10-06 17:41:20'),
+(3, 'social', '2018-10-06 17:41:21', '2018-10-06 17:41:21');
+
+
+
+
+
+INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'Administrator', '2018-10-06 06:56:51', '2018-10-06 06:56:51'),
+(2, 'user', 'Normal User', '2018-10-06 06:56:51', '2018-10-06 06:56:51');
+
+
+INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
+(1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
+(2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
+(3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
+(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', '', '', 'text', 4, 'Site'),
+(5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
+(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
+(7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
+(8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
+(9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
+(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', '', '', 'text', 1, 'Admin');
+
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
+(2, 1, 'proyecto', 'your@email.com', 'users/default.png', NULL, '$2y$10$AwY2j40PZfFQd98ehN621eSuZjpAFbdVi.tAK/3jZYJmWcDUsFA9.', NULL, NULL, '2018-10-06 07:03:30', '2018-10-06 07:03:31');
+
+
+INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
+(1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2018-10-06 06:56:50', '2018-10-06 06:56:50', 'voyager.dashboard', NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 4, '2018-10-06 06:56:50', '2018-10-06 08:27:13', 'voyager.media.index', NULL),
+(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2018-10-06 06:56:50', '2018-10-06 06:56:50', 'voyager.users.index', NULL),
+(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2018-10-06 06:56:50', '2018-10-06 06:56:50', 'voyager.roles.index', NULL),
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 5, '2018-10-06 06:56:51', '2018-10-06 08:27:13', NULL, NULL),
+(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-10-06 06:56:51', '2018-10-06 08:27:13', 'voyager.menus.index', NULL),
+(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2018-10-06 06:56:51', '2018-10-06 08:27:13', 'voyager.database.index', NULL),
+(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-10-06 06:56:51', '2018-10-06 08:27:13', 'voyager.compass.index', NULL),
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-10-06 06:56:51', '2018-10-06 08:27:13', 'voyager.bread.index', NULL),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 6, '2018-10-06 06:56:51', '2018-10-06 08:27:14', 'voyager.settings.index', NULL),
+(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-10-06 06:56:57', '2018-10-06 08:27:13', 'voyager.hooks', NULL),
+(12, 1, 'Arbitros', '', '_self', 'voyager-person', NULL, 23, 1, '2018-10-06 07:29:33', '2018-10-06 08:28:11', 'voyager.arbitros.index', NULL),
+(13, 1, 'Campeonatos', '', '_self', NULL, NULL, 23, 2, '2018-10-06 07:32:23', '2018-10-06 08:28:11', 'voyager.campeonatos.index', NULL),
+(14, 1, 'Jugadores', '', '_self', 'voyager-person', NULL, 23, 3, '2018-10-06 07:34:48', '2018-10-06 08:28:12', 'voyager.jugadores.index', NULL),
+(15, 1, 'Equipos', '', '_self', 'voyager-people', NULL, 23, 4, '2018-10-06 07:35:49', '2018-10-06 08:28:12', 'voyager.equipos.index', NULL),
+(16, 1, 'Divisiones', '', '_self', 'voyager-lighthouse', NULL, 23, 5, '2018-10-06 07:37:04', '2018-10-06 08:28:12', 'voyager.divisiones.index', NULL),
+(17, 1, 'Lugares', '', '_self', 'voyager-window-list', NULL, 23, 6, '2018-10-06 07:37:22', '2018-10-06 08:28:12', 'voyager.lugares.index', NULL),
+(18, 1, 'Deportes', '', '_self', 'voyager-pirate', NULL, 23, 7, '2018-10-06 07:38:28', '2018-10-06 08:28:12', 'voyager.deportes.index', NULL),
+(19, 1, 'Subscripciones', '', '_self', NULL, NULL, 23, 8, '2018-10-06 07:41:28', '2018-10-06 08:28:12', 'voyager.subscripciones.index', NULL),
+(20, 1, 'Sanciones', '', '_self', NULL, NULL, 23, 9, '2018-10-06 07:42:49', '2018-10-06 08:28:12', 'voyager.sanciones.index', NULL),
+(21, 1, 'Partidos', '', '_self', NULL, NULL, 23, 11, '2018-10-06 07:43:17', '2018-10-06 08:28:12', 'voyager.partidos.index', NULL),
+(22, 1, 'Noticias', '', '_self', NULL, NULL, 23, 10, '2018-10-06 07:44:03', '2018-10-06 08:28:12', 'voyager.noticias.index', NULL),
+(23, 1, 'Paginas', '', '_self', NULL, '#000000', NULL, 7, '2018-10-06 08:27:25', '2018-10-06 08:28:11', NULL, ''),
+(24, NULL, 'Blog', '/blog', '_self', NULL, '#000000', NULL, 3, '2018-10-06 17:40:56', '2018-10-06 17:40:56', NULL, NULL),
+(25, 1, 'Blog', '', '_self', 'voyager-news', NULL, NULL, 5, '2018-10-06 17:40:57', '2018-10-06 17:40:57', NULL, NULL),
+(26, 1, 'Posts', '', '_self', 'voyager-news', NULL, 25, 1, '2018-10-06 17:40:57', '2018-10-06 17:40:57', 'voyager.blog_posts.index', NULL),
+(27, 1, 'Categories', '', '_self', 'voyager-categories', NULL, 25, 2, '2018-10-06 17:40:57', '2018-10-06 17:40:57', 'voyager.categories.index', NULL),
+(28, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2018-10-06 17:41:15', '2018-10-06 17:41:15', 'voyager.pages.index', NULL),
+(29, 2, 'Home', '/home', '_self', '', NULL, NULL, 1, '2018-10-06 17:41:20', '2018-10-06 17:41:20', NULL, NULL),
+(30, 2, 'About', '/about', '_self', '', NULL, NULL, 2, '2018-10-06 17:41:20', '2018-10-06 17:41:20', NULL, NULL),
+(31, 2, 'Contact', '/contact', '_self', '', NULL, NULL, 3, '2018-10-06 17:41:21', '2018-10-06 17:41:21', NULL, NULL),
+(32, 3, 'Facebook', 'https://www.facebook.com/wearepvtl', '_blank', 'fa-facebook-square', NULL, NULL, 1, '2018-10-06 17:41:21', '2018-10-06 17:41:21', NULL, NULL),
+(33, 3, 'Twitter', 'https://twitter.com/wearepvtl', '_blank', 'fa-twitter-square', NULL, NULL, 2, '2018-10-06 17:41:22', '2018-10-06 17:41:22', NULL, NULL),
+(34, 3, 'Instagram', 'https://www.instagram.com/wearepvtl/', '_blank', 'fa-instagram', NULL, NULL, 3, '2018-10-06 17:41:22', '2018-10-06 17:41:22', NULL, NULL),
+(35, 3, 'Google+', 'https://plus.google.com/100970850483584616344', '_blank', 'fa-google-plus-square', NULL, NULL, 4, '2018-10-06 17:41:22', '2018-10-06 17:41:22', NULL, NULL),
+(36, 3, 'LinkedIn', 'https://www.linkedin.com/company/pivotal-agency', '_blank', 'fa-linkedin', NULL, NULL, 5, '2018-10-06 17:41:23', '2018-10-06 17:41:23', NULL, NULL);
+
+
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2018_09_29_000002_create_Lugar_table', 1),
+(4, '2018_09_29_000003_create_Arbitro_table', 1),
+(5, '2018_09_29_000004_create_Deporte_table', 1),
+(6, '2018_09_29_000005_create_Usuario_table', 1),
+(7, '2018_09_29_000006_create_Division_table', 1),
+(8, '2018_09_29_000007_create_Equipo_table', 1),
+(9, '2018_09_29_000008_create_Partido_table', 2),
+(10, '2018_09_29_000009_create_Campeonato_table', 3),
+(11, '2018_09_29_000010_create_Jugador_table', 3),
+(12, '2018_09_29_000011_create_arbitraje_table', 3),
+(13, '2018_09_29_000012_create_Sanciones_table', 3),
+(14, '2018_10_06_000000_create_deportes_table', 4),
+(15, '2018_10_06_000001_create_arbitros_table', 4),
+(16, '2018_10_06_000002_create_usuarios_table', 4),
+(17, '2018_10_06_000003_create_lugares_table', 4),
+(18, '2018_10_06_000004_create_noticias_table', 4),
+(19, '2018_10_06_000005_create_divisiones_table', 4),
+(20, '2018_10_06_000006_create_equipos_table', 4),
+(21, '2018_10_06_000007_create_imagenes_table', 4),
+(22, '2018_10_06_000008_create_subscripciones_table', 4),
+(23, '2018_10_06_000009_create_campeonatos_table', 4),
+(24, '2018_10_06_000010_create_jugadores_table', 4),
+(25, '2018_10_06_000011_create_partidos_table', 4),
+(26, '2018_10_06_000012_create_partido_jugadors_table', 4),
+(27, '2018_10_06_000013_create_sanciones_table', 4),
+(28, '2018_10_06_000014_create_arbitrajes_table', 4),
+(29, '2018_10_06_032207_create_tags_table', 5),
+(30, '2016_01_01_000000_add_voyager_user_fields', 6),
+(31, '2016_01_01_000000_create_data_types_table', 6),
+(32, '2016_05_19_173453_create_menu_table', 6),
+(33, '2016_10_21_190000_create_roles_table', 6),
+(34, '2016_10_21_190000_create_settings_table', 6),
+(35, '2016_11_30_135954_create_permission_table', 6),
+(36, '2016_11_30_141208_create_permission_role_table', 6),
+(37, '2016_12_26_201236_data_types__add__server_side', 6),
+(38, '2017_01_13_000000_add_route_to_menu_items_table', 6),
+(39, '2017_01_14_005015_create_translations_table', 6),
+(40, '2017_01_15_000000_make_table_name_nullable_in_permissions_table', 6),
+(41, '2017_03_06_000000_add_controller_to_data_types_table', 6),
+(42, '2017_04_21_000000_add_order_to_data_rows_table', 6),
+(43, '2017_07_05_210000_add_policyname_to_data_types_table', 6),
+(44, '2017_08_05_000000_add_group_to_settings_table', 6),
+(45, '2017_11_26_013050_add_user_role_relationship', 6),
+(46, '2017_11_26_015000_create_user_roles_table', 6),
+(47, '2018_03_11_000000_add_user_settings', 6),
+(48, '2018_03_14_000000_add_details_to_data_types_table', 6),
+(49, '2018_03_16_000000_make_settings_value_nullable', 6),
+(50, '2018_04_18_000000_create_blog_posts_table', 7),
+(51, '2018_04_18_000000_create_pages_table', 7),
+(52, '2018_04_19_224316_add_fields_to_pages_table', 7),
+(53, '2018_05_09_000000_create_categories_table', 7),
+(54, '2018_05_11_000000_remove_blog_keywords_field', 7),
+(55, '2018_05_11_000001_remove_pages_keywords_field', 7);
+
+
+INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `status`, `created_at`, `updated_at`, `layout`) VALUES
+(1, 0, 'Home', 'This is the excerpt for the Lorem Ipsum Page', '<p><br /></p><h3 class=\"text-center\">This is the body of the lorem ipsum page</h3><p class=\"text-center\">This is the body of the lorem ipsum page</p><p><br /></p>', 'pages/page1.jpg', 'home', 'This is the meta description', 'ACTIVE', '2018-10-06 17:41:18', '2018-10-06 17:41:18', NULL),
+(2, 0, 'About', 'This is the excerpt for the Lorem Ipsum Page', '<p><br /></p><h3 class=\"text-center\">This is the body of the lorem ipsum page</h3><p class=\"text-center\">This is the body of the lorem ipsum page</p><p><br /></p>', 'posts/post2.jpg', 'about', 'This is the meta description for about', 'ACTIVE', '2018-10-06 17:41:19', '2018-10-06 17:41:19', NULL),
+(3, 0, 'Contact', 'This is the excerpt for the Lorem Ipsum Page', '<p><br /></p><h3 class=\"text-center\">This is the body of the lorem ipsum page</h3><p class=\"text-center\">This is the body of the lorem ipsum page</p><p><br /></p>', 'posts/post2.jpg', 'contact', 'This is the meta description for contact', 'ACTIVE', '2018-10-06 17:41:19', '2018-10-06 17:41:19', NULL);
+
+
+INSERT INTO `blog_posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `status`, `featured`, `created_at`, `updated_at`, `tags`, `published_date`) VALUES
+(1, 0, 1, 'My First Blog Post', NULL, 'An example blog post', '<p>Matey yardarm topmast broadside nipper weigh anchor jack quarterdeck crow\'s nest rigging. Topgallant lateen sail line avast me gun Pirate Round strike colors bilge rat take a caulk. Jack six pounders spanker doubloon clipper spirits case shot hang the jib boatswain red ensign.</p>\n<p>Hornswaggle spanker spyglass Yellow Jack mutiny Arr lugger poop deck keel take a caulk. Quarter fire ship run a shot across the bow sheet log draft scallywag gally port skysail. Lugsail gangway draft pink piracy bilge Buccaneer heave to landlubber or just lubber Pieces of Eight.</p>', NULL, 'my-first-blog-post', 'A test blog post', 'PUBLISHED', 0, '2018-10-06 17:40:57', '2018-10-06 17:40:57', NULL, '2018-05-11 03:00:00'),
+(2, 0, 1, 'My Second Blog Post', NULL, 'An example blog post', '<p>Matey yardarm topmast broadside nipper weigh anchor jack quarterdeck crow\'s nest rigging. Topgallant lateen sail line avast me gun Pirate Round strike colors bilge rat take a caulk. Jack six pounders spanker doubloon clipper spirits case shot hang the jib boatswain red ensign.</p>\n<p>Hornswaggle spanker spyglass Yellow Jack mutiny Arr lugger poop deck keel take a caulk. Quarter fire ship run a shot across the bow sheet log draft scallywag gally port skysail. Lugsail gangway draft pink piracy bilge Buccaneer heave to landlubber or just lubber Pieces of Eight.</p>', NULL, 'my-second-blog-post', 'A test blog post', 'PUBLISHED', 0, '2018-10-06 17:40:58', '2018-10-06 17:40:58', NULL, '2018-05-11 03:00:00');
+
+
+INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(25, 1),
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(37, 1),
+(38, 1),
+(39, 1),
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
+(47, 1),
+(48, 1),
+(49, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1),
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1),
+(65, 1),
+(66, 1),
+(67, 1),
+(68, 1),
+(69, 1),
+(70, 1),
+(71, 1),
+(72, 1),
+(73, 1),
+(74, 1),
+(75, 1),
+(76, 1),
+(77, 1),
+(78, 1),
+(79, 1),
+(80, 1),
+(81, 1),
+(82, 1),
+(83, 1),
+(84, 1),
+(85, 1),
+(86, 1),
+(87, 1),
+(88, 1),
+(89, 1),
+(90, 1),
+(91, 1),
+(92, 1),
+(93, 1),
+(94, 1),
+(95, 1),
+(96, 1),
+(97, 1),
+(98, 1),
+(99, 1),
+(100, 1),
+(101, 1),
+(102, 1),
+(103, 1),
+(104, 1),
+(105, 1),
+(106, 1);
 

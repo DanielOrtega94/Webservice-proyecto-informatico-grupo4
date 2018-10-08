@@ -40,12 +40,25 @@ return [
         ],
 
         'mysql' => [
+         //   DB_CONNECTION=mysql
+//DB_HOST=bdd.inf.udec.cl
+//DB_PORT=3306
+//DB_DATABASE=proyinf4
+//DB_USERNAME=proyinf4
+//DB_PASSWORD=chiloteql0
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+
+            //'host' => env('DB_HOST', 'localhost'),
+            //'port' => env('DB_PORT', '3306'),
+            //'database' => env('DB_DATABASE', 'id7158914_proyinf4'),
+            //'username' => env('DB_USERNAME', 'id7158914_daniel'),
+           // 'password' => env('DB_PASSWORD', 'asd123'),
+
+            'host' => env('DB_HOST', 'bdd.inf.udec.cl'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'id7158914_proyinf4'),
-            'username' => env('DB_USERNAME', 'id7158914_daniel'),
-            'password' => env('DB_PASSWORD', 'asd123'),
+            'database' => env('DB_DATABASE', 'proyinf4'),
+            'username' => env('DB_USERNAME', 'proyinf4'),
+            'password' => env('DB_PASSWORD', 'chiloteql0'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
