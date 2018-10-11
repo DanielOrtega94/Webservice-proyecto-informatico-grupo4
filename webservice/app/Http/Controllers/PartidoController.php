@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\partido;
+ use App\partidos;
 class PartidoController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class PartidoController extends Controller
      */
      public function show()
     {
-        $usuarios=partido::all();
+        $usuarios=partidos::all();
         return response()->json($usuarios);
     }
 

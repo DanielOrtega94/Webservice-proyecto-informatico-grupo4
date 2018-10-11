@@ -5,31 +5,27 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $lugarid
+ * @property int $id
  * @property string $nombre
  * @property string $ubicacion
  * @property string $capacidad
+ * @property string $deleted_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property Partido[] $partidos
  */
 class lugares extends Model
 {
     /**
-     * The primary key for the model.
-     * 
-     * @var string
-     */
-    protected $primaryKey = 'lugarid';
-
-    /**
      * @var array
      */
-    protected $fillable = ['nombre', 'ubicacion', 'capacidad'];
+    protected $fillable = ['nombre', 'ubicacion', 'capacidad', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function partidos()
     {
-        return $this->hasMany('App\Partido', 'lugarid', 'lugarid');
+        return $this->hasMany('App\Partido', 'lugarid');
     }
 }

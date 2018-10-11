@@ -5,38 +5,35 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $equipoid
+ * @property int $id
  * @property int $divisionid
  * @property string $nombre
  * @property string $carrera
  * @property string $facultad
+ * @property string $deleted_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property Divisione $divisione
  * @property Campeonato[] $campeonatos
  * @property Jugadore[] $jugadores
  * @property Partido[] $partidos
  * @property Partido[] $partidos
  * @property Partido[] $partidos
+ * @property Subscripcione[] $subscripciones
  */
 class equipos extends Model
 {
     /**
-     * The primary key for the model.
-     * 
-     * @var string
-     */
-    protected $primaryKey = 'equipoid';
-
-    /**
      * @var array
      */
-    protected $fillable = ['divisionid', 'nombre', 'carrera', 'facultad'];
+    protected $fillable = ['divisionid', 'nombre', 'carrera', 'facultad', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function divisione()
     {
-        return $this->belongsTo('App\Divisione', 'divisionid', 'divisionid');
+        return $this->belongsTo('App\Divisione', 'divisionid');
     }
 
     /**
@@ -44,7 +41,7 @@ class equipos extends Model
      */
     public function campeonatos()
     {
-        return $this->hasMany('App\Campeonato', 'campeon', 'equipoid');
+        return $this->hasMany('App\Campeonato', 'campeon');
     }
 
     /**
@@ -52,23 +49,23 @@ class equipos extends Model
      */
     public function jugadores()
     {
-        return $this->hasMany('App\Jugadore', 'equipoid', 'equipoid');
+        return $this->hasMany('App\Jugadore', 'equipoid');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contrincante1()
+    public function jugador1()
     {
-        return $this->hasMany('App\Partido', 'equipo_1', 'equipoid');
+        return $this->hasMany('App\Partido', 'equipo_1');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contrincante2()
+    public function jugador2()
     {
-        return $this->hasMany('App\Partido', 'equipo_2', 'equipoid');
+        return $this->hasMany('App\Partido', 'equipo_2');
     }
 
     /**
@@ -76,6 +73,14 @@ class equipos extends Model
      */
     public function ganador()
     {
-        return $this->hasMany('App\Partido', 'ganador', 'equipoid');
+        return $this->hasMany('App\Partido', 'ganador');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscripciones()
+    {
+        return $this->hasMany('App\Subscripcione', 'equipoid');
     }
 }

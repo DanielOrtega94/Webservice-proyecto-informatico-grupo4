@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $amarilla
  * @property boolean $roja
  * @property int $faltas_b
+ * @property string $deleted_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property Jugadore $jugadore
  * @property Partido $partido
  */
@@ -20,14 +23,14 @@ class partido_jugadors extends Model
     /**
      * @var array
      */
-    protected $fillable = ['puntos', 'triples', 'amarilla', 'roja', 'faltas_b'];
+    protected $fillable = ['puntos', 'triples', 'amarilla', 'roja', 'faltas_b', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function jugadore()
     {
-        return $this->belongsTo('App\Jugadore', 'jugadorid', 'jugadorid');
+        return $this->belongsTo('App\Jugadore', 'jugadorid');
     }
 
     /**
@@ -35,6 +38,6 @@ class partido_jugadors extends Model
      */
     public function partido()
     {
-        return $this->belongsTo('App\Partido', 'partidoid', 'partidoid');
+        return $this->belongsTo('App\Partido', 'partidoid');
     }
 }

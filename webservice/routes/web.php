@@ -32,4 +32,6 @@ Route::get('jugadores','JugadoresController@show');
 Route::get('lugares','LugaresController@show');
 Route::get('partido_jugador','Partido_JugadorsController@show');
 Route::get('sanciones','SancionesController@show');
-Route::get('usuarios','UsuariosController@show');
+Route::get('noticias','NoticiasController@show');
+Route::get('imagenes','ImagenesController@show');
+Route::get('subscripciones','SubscripcionesController@show');

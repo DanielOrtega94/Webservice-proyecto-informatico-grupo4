@@ -5,33 +5,29 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id
  * @property int $usuarioid
  * @property int $equipoid
- * @property int $idSubscripcion
  * @property string $fecha
+ * @property string $deleted_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property Equipo $equipo
  * @property Usuario $usuario
  */
 class subscripciones extends Model
 {
     /**
-     * The primary key for the model.
-     * 
-     * @var string
-     */
-    protected $primaryKey = 'idSubscripcion';
-
-    /**
      * @var array
      */
-    protected $fillable = ['usuarioid', 'equipoid', 'fecha'];
+    protected $fillable = ['usuarioid', 'equipoid', 'fecha', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function equipo()
     {
-        return $this->belongsTo('App\Equipo', 'equipoid', 'equipoid');
+        return $this->belongsTo('App\Equipo', 'equipoid');
     }
 
     /**
@@ -39,6 +35,6 @@ class subscripciones extends Model
      */
     public function usuario()
     {
-        return $this->belongsTo('App\Usuario', 'usuarioid', 'usuarioid');
+        return $this->belongsTo('App\Usuario', 'usuarioid');
     }
 }

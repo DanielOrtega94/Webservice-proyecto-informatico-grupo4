@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $divisionid
+ * @property int $id
  * @property int $deporteid
  * @property string $nombre
+ * @property string $deleted_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property Deporte $deporte
  * @property Campeonato[] $campeonatos
  * @property Equipo[] $equipos
@@ -16,23 +19,16 @@ use Illuminate\Database\Eloquent\Model;
 class divisiones extends Model
 {
     /**
-     * The primary key for the model.
-     * 
-     * @var string
-     */
-    protected $primaryKey = 'divisionid';
-
-    /**
      * @var array
      */
-    protected $fillable = ['deporteid', 'nombre'];
+    protected $fillable = ['deporteid', 'nombre', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function deporte()
     {
-        return $this->belongsTo('App\Deporte', 'deporteid', 'deporteid');
+        return $this->belongsTo('App\Deporte', 'deporteid');
     }
 
     /**
@@ -40,7 +36,7 @@ class divisiones extends Model
      */
     public function campeonatos()
     {
-        return $this->hasMany('App\Campeonato', 'divisionid', 'divisionid');
+        return $this->hasMany('App\Campeonato', 'divisionid');
     }
 
     /**
@@ -48,7 +44,7 @@ class divisiones extends Model
      */
     public function equipos()
     {
-        return $this->hasMany('App\Equipo', 'divisionid', 'divisionid');
+        return $this->hasMany('App\Equipo', 'divisionid');
     }
 
     /**
@@ -56,6 +52,6 @@ class divisiones extends Model
      */
     public function partidos()
     {
-        return $this->hasMany('App\Partido', 'divisionid', 'divisionid');
+        return $this->hasMany('App\Partido', 'divisionid');
     }
 }
