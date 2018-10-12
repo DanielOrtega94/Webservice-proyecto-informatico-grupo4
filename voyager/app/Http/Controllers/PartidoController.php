@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\partidos;
- use App\divisiones;
-  use App\campeonatos;
+use App\partidos;
+use App\divisiones;
+use App\campeonatos;
+use DB;
 class PartidoController extends Controller
 {
     /**
@@ -53,7 +54,7 @@ class PartidoController extends Controller
 
       public function futbol()
     {
-        #$respuesta= [];
+     
         $futbol=divisiones::where('deporteid','=',1)->get();
        foreach ($futbol as $key => $value) {
             $partidos=partidos::where('divisionid','=',$key)->get();
@@ -66,19 +67,11 @@ class PartidoController extends Controller
 
       public function futbol_campeonato()
     {
-        $respuesta =[ ];
-        $futbol=divisiones::where('deporteid','=',1)->get();
+        $respuesta = DB::select(DB::raw('SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
+FROM campeonatos as c ,divisiones as d, partidos as p 
+WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = 1'));
 
-       foreach ($futbol as $key => $value) {
-            $campeonatos = campeonatos::where('divisionid','=',$key)->get();
-            $partidos=partidos::where('divisionid','=',$key)->get();
-#concat, merge, union
-            $merged = $partidos->union($campeonatos["nombre"])->concat($campeonatos["ano"])->concat($campeonatos["semestre"])->concat($campeonatos["id"]);
-            #array_push($respuesta,[$partidos,$campeonatos]);
-       }
-
-        #return response()->json($respuesta );
-         return response()->json($merged );
+        return response()->json($respuesta );
     }
 
 
@@ -86,12 +79,9 @@ class PartidoController extends Controller
 
       public function basket()
     {
-        $futbol=divisiones::where('deporteid','=',3)->get();
-
-       foreach ($futbol as $key => $value) {
-            $partidos=partidos::where('divisionid','=',$key)->get();
-       }
-     
+        $respuesta = DB::select(DB::raw('SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
+FROM campeonatos as c ,divisiones as d, partidos as p 
+WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = 3'));
         return response()->json($partidos);
         
     }
