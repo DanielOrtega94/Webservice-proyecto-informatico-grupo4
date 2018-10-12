@@ -34,4 +34,13 @@ Route::get('partido_jugador','Partido_JugadorsController@show');
 Route::get('sanciones','SancionesController@show');
 Route::get('noticias','NoticiasController@show');
 Route::get('imagenes','ImagenesController@show');
+Route::get('partidos','PartidoController@show');
 Route::get('subscripciones','SubscripcionesController@show');
+Route::get('futbol','PartidoController@futbol');
+Route::get('basket','PartidoController@basket');
+Route::get('futbol_campeonato','PartidoController@futbol_campeonato');
+Route::get('basket_campeonato','PartidoController@basket_campeonato');
+
+
+
+
