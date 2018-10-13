@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\partidos;
-use App\divisiones;
-use App\campeonatos;
+use App\Partido;
+use App\Divisione;
+use App\Campeonato;
 use DB;
 class PartidoController extends Controller
 {
@@ -48,16 +48,16 @@ class PartidoController extends Controller
      */
      public function show()
     {
-        $usuarios=partidos::all();
+        $usuarios=Partido::all();
         return response()->json($usuarios);
     }
 
       public function futbol()
     {
      
-        $futbol=divisiones::where('deporteid','=',1)->get();
+        $futbol=Divisione::where('deporteid','=',1)->get();
        foreach ($futbol as $key => $value) {
-            $partidos=partidos::where('divisionid','=',$key)->get();
+            $partidos=Partido::where('divisionid','=',$key)->get();
             #array_push($respuesta,$partidos);
        }
 

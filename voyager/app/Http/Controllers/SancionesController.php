@@ -1,9 +1,10 @@
+
 <?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\sanciones;
+ use App\Sancione;
 class SancionesController extends Controller
 {
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\subscripciones;
+ use App\Subscripcione;
 class SubscripcionesController extends Controller
 {
     /**

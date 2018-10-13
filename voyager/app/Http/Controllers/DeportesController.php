@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\deportes;
+ use App\Deporte;
 class DeportesController extends Controller
 {
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\divisiones;
+ use App\Divisione;
 class DivisionesController extends Controller
 {
     /**
