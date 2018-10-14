@@ -6,7 +6,10 @@ INSERT INTO `deportes` (`deporteid`, `nombre`) VALUES
 
 INSERT INTO `divisiones` (`divisionid`, `deporteid`, `nombre`) VALUES
 (1, 1, 'Primera Division'),
-(2, 1, 'Segunda Division');
+(2, 1, 'Segunda Division'),
+(3, 3, 'Serie de Honor'),
+(4, 3, 'Segunda Division'),
+(5, 3, 'Tercera Division');
 
 INSERT INTO `campeonatos` (`campeonatoid`, `divisionid`, `ano`, `nombre`, `semestre`, `campeon`, `fecha_inicio`, `fecha_termino`, `reglamento`) VALUES
 (1, 1, 2018, 'Torneo de Verano', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
@@ -49,7 +52,35 @@ INSERT INTO `equipos` (`equipoid`, `divisionid`, `nombre`, `carrera`, `facultad`
 (33, 1, 'CFyM', 'vacio', 'Ciencias fisicas y matematicas'),
 (34, 1, 'Mecanica', 'Ingenieria civil Mecanica', 'Ingenieria'),
 (35, 1, 'Odontologia', 'Odontologia', 'Odontologia'),
-(36, 1, 'Civil', 'Ingenieria Civil', 'Ingenieria');
+(36, 1, 'Civil', 'Ingenieria Civil', 'Ingenieria'),
+(37, 3, 'Medicina', 'Medicina', 'Medicina'),
+(38, 3, 'Ingenieria Mecanica', 'Ingenieria civil Mecanica', 'Ingenieria'),
+(39, 3, 'Ingenieria Civil', 'Ingenieria Civil', 'Ingenieria'),
+(40, 3, 'Ingenieria Ambiental', 'Ingenieria Ambiental', 'Ambiental'),
+(41, 3, 'DIE', 'vacio', 'Ingenieria'),
+(42, 3, 'Senior A', 'vacio', 'vacio'),
+(43, 3, 'IPVG', 'vacio', 'vacio'),
+(44, 3, 'Farmacia', 'Farmacia', 'Farmacia y Nutricion'),
+(45, 3, 'Ingenieria Civil Quimica', 'Ingenieria civil Quimica', 'Ingenieria'),
+(46, 3, 'Lex', 'Derecho', 'Ciencias juridicas y sociales'),
+(47, 4, 'Psicologia', 'Psicologia', 'Ciencias sociales'),
+(48, 4, 'Ciencias Forestales', 'vacio', 'Ciencias Forestales'),
+(49, 4, 'CFM', 'vacio', 'Ciencias fisicas y matematicas'),
+(50, 4, 'Educacion', 'vacio', 'Educacion'),
+(51, 4, 'Odontologia', 'Odontologia', 'Odontologia'),
+(52, 4, 'Veterinaria', 'Veterinaria', 'Veterinaria'),
+(53, 4, 'Senior B', 'vacio', 'vacio'),
+(54, 4, 'Medicina B', 'Medicina', 'Medicina'),
+(55, 5, 'Facultad La Ballena', 'vacio', 'Ciencias naturales y oceanograficas'),
+(56, 5, 'Geologia', 'Geologia', 'Ciencias quimicas'),
+(57, 5, 'Enfermeria', 'Enfermeria', 'Enfermeria'),
+(58, 5, 'DEF', 'Educacion Fisica', 'Educacion'),
+(59, 5, 'ICO', 'vacio', 'vacio'),
+(60, 5, 'Auditoria', 'Auditoria', 'Ciencias economicas y administrativas'),
+(61, 5, 'Agronomia', 'Agronomia', 'Ciencias Forestales'),
+(62, 5, 'Kinesiologia B', 'Kinesiologia', 'Medicina'),
+(63, 5, 'Teconologia Medica', 'Teconologia Medica', 'Medicina'),
+(64, 5, 'Bioingenieria', 'Bioingenieria', 'vacio');
 
 
 INSERT INTO `jugadores` (`jugadorid`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALUES
