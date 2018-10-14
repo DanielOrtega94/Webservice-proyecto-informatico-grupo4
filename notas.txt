@@ -10,9 +10,6 @@ php artisan krlove:generate:model deportes
 php artisan krlove:generate:model partido
 php artisan krlove:generate:model arbitros
 php artisan krlove:generate:model arbitrajes
-
-
-
 php artisan krlove:generate:model subscripciones
 php artisan krlove:generate:model noticias
 php artisan krlove:generate:model imagenes
@@ -30,12 +27,6 @@ php artisan make:controller DeportesController --resource
 php artisan make:controller PartidoController --resource
 php artisan make:controller ArbitrosController --resource
 php artisan make:controller ArbitrajesController --resource
-
-
-
-php artisan krlove:generate:model subscripciones
-php artisan krlove:generate:model noticias
-php artisan krlove:generate:model imagenes
 php artisan make:controller SubscripcionesController --resource
 php artisan make:controller NoticiasController --resource
 php artisan make:controller ImagenesController --resource
@@ -82,3 +73,8 @@ WHERE CONSTRAINT_NAME<>'PRIMARY'
 ORDER BY CONSTRAINT_NAME;
 
 En mysql workbench es cambiar los nombres en foreing keys
+
+
+PROBLEMAS CON ENUM EN BDD INF UDEC 
+SOlucion rapida
+crear base en localhost y generar modelo, luego cambiar los parametros volver a inf udec
