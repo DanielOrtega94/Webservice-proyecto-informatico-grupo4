@@ -1,5 +1,6 @@
 composer create-project laravel/laravel voyager
 composer require tcg/voyager
+
 php artisan voyager:install
 php artisan voyager:admin your@email.com --create
 your@email.com
@@ -12,16 +13,14 @@ crear breads
 php artisan make:model Arbitro
 php artisan make:model Campeonato
 php artisan make:model Deporte
-php artisan make:model Lugare
-php artisan make:model Divisione
+php artisan make:model Lugar
+php artisan make:model Division
 php artisan make:model Equipo
-php artisan make:model Jugadore
-
-
+php artisan make:model Jugador
 php artisan make:model Noticia
 php artisan make:model Partido
-php artisan make:model Sancione
-php artisan make:model Subscripcione
+php artisan make:model Sancion
+php artisan make:model Subscripcion
 
 ACTIVAR SQL LITE3 
 
@@ -32,13 +31,10 @@ sqlite3.extension_dir = "C:\xampp\php\ext
 
 
 composer require pvtl/voyager-frontend
-# 2.1 Run the Installer
-composer dump-autoload && php artisan voyager-frontend:install
-
-# 2.3 Build the front-end theme assets
+composer dump-autoload
+php artisan voyager-frontend:install
 npm run dev
-
-# 2.4 Set the Laravel search driver in your .env
 echo "SCOUT_DRIVER=tntsearch" >> .env
 
 FALTO HACER el bread de sanciones
+http://127.0.0.1:8000/admin/login
