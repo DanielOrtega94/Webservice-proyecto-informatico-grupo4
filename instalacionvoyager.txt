@@ -13,15 +13,16 @@ crear breads
 php artisan make:model Arbitro
 php artisan make:model Campeonato
 php artisan make:model Deporte
-php artisan make:model Lugar
-php artisan make:model Division
+php artisan make:model Divisione
+php artisan make:model Jugadore
 php artisan make:model Equipo
-php artisan make:model Jugador
+php artisan make:model Lugare
 php artisan make:model Noticia
 php artisan make:model Partido
-php artisan make:model Sancion
-php artisan make:model Subscripcion
-
+php artisan make:model Sancione
+php artisan make:model Subscripcione
+php artisan make:model PartidoJugador
+php artisan make:model Arbitraje
 ACTIVAR SQL LITE3 
 
 

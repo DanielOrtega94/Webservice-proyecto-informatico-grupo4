@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Lugar;
+ use App\Lugare;
 class LugaresController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class LugaresController extends Controller
      */
      public function show()
     {
-        $usuarios=Lugar::all();
+        $usuarios=lugares::all();
         return response()->json($usuarios);
     }
 

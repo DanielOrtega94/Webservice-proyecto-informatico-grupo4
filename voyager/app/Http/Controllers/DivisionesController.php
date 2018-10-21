@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Division;
+ use App\Divisione;
 class DivisionesController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class DivisionesController extends Controller
      */
     public function show()
     {
-        $usuarios=Division::all();
+        $usuarios=divisiones::all();
         return response()->json($usuarios);
     }
 

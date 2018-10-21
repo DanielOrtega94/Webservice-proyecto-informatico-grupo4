@@ -45,7 +45,7 @@ class CampeonatosController extends Controller
      */
     public function show()
     {
-        $usuarios=Campeonato::all();
+        $usuarios=campeonatos::all();
         return response()->json($usuarios);
     }
 

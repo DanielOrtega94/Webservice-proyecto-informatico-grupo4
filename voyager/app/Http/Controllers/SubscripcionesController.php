@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Subscripcion;
+ use App\Subscripcione;
 class SubscripcionesController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class SubscripcionesController extends Controller
      */
     public function show()
     {
-         $usuarios=Subscripcion::all();
+         $usuarios=subscripciones::all();
         return response()->json($usuarios);
     }
 

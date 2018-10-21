@@ -45,7 +45,7 @@ class ImagenesController extends Controller
      */
     public function show()
     {
-         $usuarios=Imagenes::all();
+         $usuarios=imagenes::all();
         return response()->json($usuarios);
     }
 

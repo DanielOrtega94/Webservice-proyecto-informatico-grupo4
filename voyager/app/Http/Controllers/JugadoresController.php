@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Jugador;
+ use App\Jugadore;
 class JugadoresController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class JugadoresController extends Controller
      */
     public function show()
     {
-        $usuarios=Jugador::all();
+        $usuarios=jugadores::all();
         return response()->json($usuarios);
     }
 

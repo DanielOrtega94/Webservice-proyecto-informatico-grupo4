@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Sancion;
+ use App\Sancione;
 class SancionesController extends Controller
 {
     /**
@@ -46,7 +46,7 @@ class SancionesController extends Controller
      */
     public function show()
     {
-        $usuarios=Sancion::all();
+        $usuarios=sanciones::all();
         return response()->json($usuarios);
     }
 

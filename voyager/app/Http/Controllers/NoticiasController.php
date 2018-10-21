@@ -45,7 +45,7 @@ class NoticiasController extends Controller
      */
     public function show()
     {
-         $usuarios=Noticia::all();
+         $usuarios=noticias::all();
         return response()->json($usuarios);        //
     }
 

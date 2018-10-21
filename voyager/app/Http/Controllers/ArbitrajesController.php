@@ -47,7 +47,7 @@ class ArbitrajesController extends Controller
      
     public function show()
     {
-        $usuarios=Arbitrajes::all();
+        $usuarios=arbitrajes::all();
         return response()->json($usuarios);
     }
 

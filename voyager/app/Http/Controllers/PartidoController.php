@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Partido;
-use App\Division;
+use App\Divisione;
 use App\Campeonato;
 use DB;
 class PartidoController extends Controller
@@ -55,7 +55,7 @@ class PartidoController extends Controller
       public function futbol()
     {
      
-        $futbol=Division::where('deporteid','=',1)->get();
+        $futbol=Divisione::where('deporteid','=',1)->get();
        foreach ($futbol as $key => $value) {
             $partidos=Partido::where('divisionid','=',$key)->get();
             #array_push($respuesta,$partidos);
