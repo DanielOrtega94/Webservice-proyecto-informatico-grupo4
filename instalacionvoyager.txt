@@ -40,3 +40,8 @@ echo "SCOUT_DRIVER=tntsearch" >> .env
 FALTO HACER el bread de sanciones
 http://127.0.0.1:8000/admin/login
  http://localhost:8000/admin
+
+
+
+Subir Voyager
+Necesariamente poner la config de la base de datos en config/database.php
