@@ -157,8 +157,6 @@ INSERT INTO `lugares` (`id`, `nombre`, `ubicacion`, `capacidad`) VALUES
 (2, 'Cancha de Hockey', 'Al lado del edificio Virginio Gomez', '200000 espectadores'),
 (3, 'Jaulas', 'Estadio UdeC', '2 personas');
 
-INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `ganador`, `fecha`, `hora`) VALUES
-(1, 1, 2, 1, 1, NULL, '2018-08-28', '15:00 hrs');
 
 INSERT INTO `sanciones` (`id`, `jugadorid`, `tiempo`, `comentario`) VALUES
 (1, 1, '25 fechas', 'Por buen tipo');
@@ -263,7 +261,20 @@ INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `
 (97, 4, 7, 2, 1, 4, '2018-10-06', '15:00 hrs'),
 (98, 30, 24, 1, 1, 30, '2018-10-06', '16:30 hrs'),
 (99, 27, 32, 1, 1, 27, '2018-10-06', '18:00 hrs'),
-(100, 35, 36, 1, 1, 35, '2018-10-06', '19:30 hrs');
+(100, 35, 36, 1, 1, 35, '2018-10-06', '19:30 hrs'),
+(101, 17, 5, 2, 1, NULL, '2018-10-25', '10:30 hrs'),
+(102, 33, 34, 1, 1, NULL, '2018-10-25', '12:00 hrs'),
+(103, 10, 18, 2, 1, NULL, '2018-10-25', '13:30 hrs'),
+(104, 26, 28, 1, 1, NULL, '2018-10-25', '15:00 hrs'),
+(105, 13, 12, 2, 1, NULL, '2018-10-26', '10:30 hrs'),
+(106, 8, 14, 2, 1, NULL, '2018-10-26', '12:00 hrs'),
+(107, 1, 16, 2, 1, NULL, '2018-10-26', '13:30 hrs'),
+(108, 11, 6, 2, 1, NULL, '2018-10-26', '19:00 hrs'),
+(109, 27, 29, 1, 1, NULL, '2018-10-26', '20:30 hrs'),
+(110, 4, 9, 2, 1, NULL, '2018-10-27', '15:00 hrs'),
+(111, 27, 28, 1, 1, NULL, '2018-10-27', '16:30 hrs'),
+(112, 35, 21, 1, 1, NULL, '2018-10-27', '18:00 hrs'),
+(113, 30, 31, 1, 1, NULL, '2018-10-27', '19:30 hrs');
 
 
 INSERT INTO `arbitros` (`id`, `nombre`, `carrera`, `fecha_ingreso`, `deleted_at`, `created_at`, `updated_at`) VALUES
