@@ -83,7 +83,7 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 INSERT INTO `jugadores` (`id`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALUES
 (1, 1, 'Jeremias Torres', 23, 2013),
 (2, 2, 'Juan Ignacio Burgos', 20, 2017),
-(3, 1, 'Abelardo Norambuena', 23, 2014),
+(3, 1, 'Juan Carlos Contreras', 23, 2014),
 (4, 1, 'Alan Cotal', 18, 2018),
 (5, 1, 'Benjamin Rodriguez', 21, 2015),
 (6, 2, 'Diego Pulgar', 18, 2018),
@@ -262,15 +262,15 @@ INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `
 (98, 30, 24, 1, 1, 30, '2018-10-06', '16:30 hrs'),
 (99, 27, 32, 1, 1, 27, '2018-10-06', '18:00 hrs'),
 (100, 35, 36, 1, 1, 35, '2018-10-06', '19:30 hrs'),
-(101, 17, 5, 2, 1, NULL, '2018-10-25', '10:30 hrs'),
+(101, 17, 5, 2, 1, 17, '2018-10-25', '10:30 hrs'),
 (102, 33, 34, 1, 1, NULL, '2018-10-25', '12:00 hrs'),
-(103, 10, 18, 2, 1, NULL, '2018-10-25', '13:30 hrs'),
-(104, 26, 28, 1, 1, NULL, '2018-10-25', '15:00 hrs'),
-(105, 13, 12, 2, 1, NULL, '2018-10-26', '10:30 hrs'),
-(106, 8, 14, 2, 1, NULL, '2018-10-26', '12:00 hrs'),
-(107, 1, 16, 2, 1, NULL, '2018-10-26', '13:30 hrs'),
-(108, 11, 6, 2, 1, NULL, '2018-10-26', '19:00 hrs'),
-(109, 27, 29, 1, 1, NULL, '2018-10-26', '20:30 hrs'),
+(103, 10, 18, 2, 1, 10, '2018-10-25', '13:30 hrs'),
+(104, 26, 28, 1, 1, 26, '2018-10-25', '15:00 hrs'),
+(105, 13, 12, 2, 1, 13, '2018-10-26', '10:30 hrs'),
+(106, 8, 14, 2, 1, 8, '2018-10-26', '12:00 hrs'),
+(107, 1, 16, 2, 1, 16, '2018-10-26', '13:30 hrs'),
+(108, 11, 6, 2, 1, 6, '2018-10-26', '19:00 hrs'),
+(109, 27, 29, 1, 1, 27, '2018-10-26', '20:30 hrs'),
 (110, 4, 9, 2, 1, NULL, '2018-10-27', '15:00 hrs'),
 (111, 27, 28, 1, 1, NULL, '2018-10-27', '16:30 hrs'),
 (112, 35, 21, 1, 1, NULL, '2018-10-27', '18:00 hrs'),
@@ -303,7 +303,26 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`, `admin`, `deleted_
 (5, 'asdfasdfasdf Zapata', NULL, 'pass', NULL, NULL, NULL, NULL);
 
 INSERT INTO `partido_jugadors` (`partidoid`, `jugadorid`, `puntos`, `triples`, `amarilla`, `roja`, `faltas_b`) VALUES
-(1, 1, 3, 0, 1, 0, 0);
+(101, 11, 1, 0, 1, 0, 0, NULL, NULL, NULL),
+(101, 12, 1, 0, 0, 0, 0, NULL, NULL, NULL), 
+(101, 35, 3, 0, 1, 0, 0, NULL, NULL, NULL),
+(101, 36, 2, 0, 1, 1, 0, NULL, NULL, NULL),
+(102, 63, 0, 0, 0, 1, 0, NULL, NULL, NULL), 
+(102, 65, 0, 0, 1, 1, 0, NULL, NULL, NULL),
+(103, 22, 2, 0, 1, 1, 0, NULL, NULL, NULL), 
+(103, 37, 1, 0, 0, 0, 0, NULL, NULL, NULL), 
+(104, 53, 3, 0, 1, 0, 0, NULL, NULL, NULL), 
+(104, 55, 1, 0, 0, 0, 0, NULL, NULL, NULL), 
+(105, 28, 2, 0, 0, 0, 0, NULL, NULL, NULL), 
+(105, 27, 1, 0, 1, 0, 0, NULL, NULL, NULL), 
+(106, 18, 2, 0, 0, 0, 0, NULL, NULL, NULL), 
+(106, 17, 1, 0, 1, 0, 0, NULL, NULL, NULL), 
+(106, 29, 1, 0, 0, 0, 0, NULL, NULL, NULL), 
+(107, 33, 1, 0, 1, 0, 0, NULL, NULL, NULL), 
+(108, 23, 2, 0, 0, 1, 0, NULL, NULL, NULL), 
+(108, 13, 3, 0, 0, 1, 0, NULL, NULL, NULL), 
+(108, 14, 2, 0, 0, 0, 0, NULL, NULL, NULL), 
+(109, 54, 2, 0, 1, 0, 0, NULL, NULL, NULL);
 
 
 
