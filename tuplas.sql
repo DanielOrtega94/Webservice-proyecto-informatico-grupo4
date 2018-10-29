@@ -10,7 +10,8 @@ INSERT INTO `divisiones` (`id`, `deporteid`, `nombre`) VALUES
 (2, 1, 'Segunda Division'),
 (3, 3, 'Serie de Honor'),
 (4, 3, 'Segunda Division'),
-(5, 3, 'Tercera Division');
+(5, 3, 'Tercera Division'),
+(6, 2, 'Champions Ingeniería 2018', NULL, NULL, NULL);
 
 
 INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALUES
@@ -77,7 +78,15 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 (61, 5, 'Agronomia', 'Agronomia', 'Ciencias Forestales'),
 (62, 5, 'Kinesiologia B', 'Kinesiologia', 'Medicina'),
 (63, 5, 'Teconologia Medica', 'Teconologia Medica', 'Medicina'),
-(64, 5, 'Bioingenieria', 'Bioingenieria', 'vacio');
+(64, 5, 'Bioingenieria', 'Bioingenieria', 'vacio'),
+(65, 6, 'Melovers', 'Ingeniería civil Química', 'Ingeniería', NULL, NULL, NULL), 
+(66, 6, 'Tajo', 'Ingeniería civil Minas', 'Ingeniería', NULL, NULL, NULL), 
+(67, 6, 'Volátiles', 'Ingeniería civil Metalúrgica', 'Ingeniería', NULL, NULL, NULL), 
+(68, 6, 'Zorrimbos', 'Ingeniería civil Química', 'Ingeniería', NULL, NULL, NULL), 
+(69, 6, 'Guerreros de Baquedano', 'Ingeniería Comercial', 'Ciencias economicas y administrativas', NULL, NULL, NULL), 
+(70, 6, 'Chaneriales', 'Ingeniería civil Materiales', 'Ingeniería', NULL, NULL, NULL), 
+(71, 6, 'Vodka jrs', 'Ingeniería civil Materiales', 'Ingeniería', NULL, NULL, NULL), 
+(72, 6, 'Garra Mecánica', 'Ingeniería civil Mecánica', 'Ingeniería', NULL, NULL, NULL);
 
 
 INSERT INTO `jugadores` (`id`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALUES
@@ -150,16 +159,28 @@ INSERT INTO `jugadores` (`id`, `equipoid`, `nombre`, `edad`, `ano_ingreso`) VALU
 (67, 35, 'Pablo Hernandez', 20, 2016),
 (68, 35, 'Hernan Fuentes', 20, 2016),
 (69, 36, 'Felipe Vidal', 23, 2015),
-(70, 36, 'Alberto Romero', 23, 2014);
+(70, 36, 'Alberto Romero', 23, 2014),
+(71, 72, 'José Contreras', '22', '2014', NULL, NULL, NULL), 
+(72, 72, 'Álvaro Reyes', '22', '2014', NULL, NULL, NULL), 
+(73, 71, 'Andrés Elgueda', '23', '2013', NULL, NULL, NULL), 
+(74, 71, 'Matías Herrera', '22', '2014', NULL, NULL, NULL), 
+(75, 70, 'Joaquín Arduiz', '22', '2014', NULL, NULL, NULL), 
+(76, 70, 'Diego Nova', '22', '2014', NULL, NULL, NULL), 
+(77, 69, 'Gonzalo Ramírez', '21', '2015', NULL, NULL, NULL), 
+(78, 69, 'Francisco Loyola', '25', '2011', NULL, NULL, NULL), 
+(79, 68, 'Diego Barrientos', '23', '2013', NULL, NULL, NULL), 
+(80, 68, 'Claudio Bachmann', '23', '2013', NULL, NULL, NULL), 
+(81, 67, 'Franco Matamala', '21', '2015', NULL, NULL, NULL), 
+(82, 67, 'Cristian Mora', '21', '2015', NULL, NULL, NULL), 
+(83, 66, 'Carlos Vega', '23', '2013', NULL, NULL, NULL), 
+(84, 66, 'Eduardo Perales', '22', '2014', NULL, NULL, NULL), 
+(85, 65, 'Felipe Alegría', '21', '2015', NULL, NULL, NULL), 
+(86, 65, 'Claudio Jerez', '21', '2015', NULL, NULL, NULL);
 
 INSERT INTO `lugares` (`id`, `nombre`, `ubicacion`, `capacidad`) VALUES
 (1, 'Cancha sintetica Universidad de Concepcion', NULL, '50000 espectadores'),
-(2, 'Cancha de Hockey', 'Al lado del edificio Virginio Gomez', '200000 espectadores'),
-(3, 'Jaulas', 'Estadio UdeC', '2 personas');
-
-
-INSERT INTO `sanciones` (`id`, `jugadorid`, `tiempo`, `comentario`) VALUES
-(1, 1, '25 fechas', 'Por buen tipo');
+(2, 'Cancha de Hockey', 'A un costado del edificio Virginio Gomez', '20000 espectadores'),
+(3, 'Casa del Deporte', 'Entrada estacionamiento Roosevelt', '100 espectadores');
 
 INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `ganador`, `fecha`, `hora`) VALUES
 (1, 23, 20, 1, 1, 20, '2018-08-27', '10:30 hrs'),
@@ -274,7 +295,9 @@ INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `
 (110, 4, 9, 2, 1, NULL, '2018-10-27', '15:00 hrs'),
 (111, 27, 28, 1, 1, NULL, '2018-10-27', '16:30 hrs'),
 (112, 35, 21, 1, 1, NULL, '2018-10-27', '18:00 hrs'),
-(113, 30, 31, 1, 1, NULL, '2018-10-27', '19:30 hrs');
+(113, 30, 31, 1, 1, NULL, '2018-10-27', '19:30 hrs')
+(114, 65, 66, 6, 2, 65, '2018-04-16', '14:00', NULL, NULL, NULL, '0'), 
+(115, 67, 68, 6, 2, 68, '2018-04-16', '14:45', NULL, NULL, NULL, '0');
 
 
 INSERT INTO `arbitros` (`id`, `nombre`, `carrera`, `fecha_ingreso`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -288,7 +311,11 @@ INSERT INTO `arbitrajes` (`partidoid`, `arbitroid`, `tipo`, `deleted_at`, `creat
 
 INSERT INTO `campeonatos` (`id`, `divisionid`, `ano`, `nombre`, `semestre`, `campeon`, `fecha_inicio`, `fecha_termino`, `reglamento`) VALUES
 (1, 1, 2018, 'Torneo de Verano', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
-(2, 2, 2018, 'Torneo de Verano Segunda Division', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL);
+(2, 2, 2018, 'Torneo de Verano Segunda Division', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
+(3, 3, 2018, 'Torneo Primera Division Basquetbol', 'Todo el año', NULL, '2018-03-15', '2018-12-03', NULL, NULL, NULL, NULL), 
+(4, 4, 2018, 'Torneo Segunda Division Basquetbol', 'Todo el año', NULL, '2018-03-12', '2018-12-09', NULL, NULL, NULL, NULL), 
+(5, 5, 2018, 'Torneo Tercera Division Basquetbol', 'Todo el año', NULL, '2018-03-12', '2018-12-16', NULL, NULL, NULL, NULL),
+(6, 6, 2018, 'Champions de Ingeniería', 'Primer Semestre', NULL, '2018-03-15', '2018-06-10', NULL, NULL, NULL, NULL);
 
 
 
