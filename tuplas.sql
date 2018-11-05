@@ -51,6 +51,7 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 (34, 1, 'Mecanica', 'Ingenieria civil Mecanica', 'Ingenieria'),
 (35, 1, 'Odontologia', 'Odontologia', 'Odontologia'),
 (36, 1, 'Civil', 'Ingenieria Civil', 'Ingenieria'),
+
 (37, 3, 'Medicina', 'Medicina', 'Medicina'),
 (38, 3, 'Ingenieria Mecanica', 'Ingenieria civil Mecanica', 'Ingenieria'),
 (39, 3, 'Ingenieria Civil', 'Ingenieria Civil', 'Ingenieria'),
@@ -61,6 +62,7 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 (44, 3, 'Farmacia', 'Farmacia', 'Farmacia y Nutricion'),
 (45, 3, 'Ingenieria Civil Quimica', 'Ingenieria civil Quimica', 'Ingenieria'),
 (46, 3, 'Lex', 'Derecho', 'Ciencias juridicas y sociales'),
+
 (47, 4, 'Psicologia', 'Psicologia', 'Ciencias sociales'),
 (48, 4, 'Ciencias Forestales', 'vacio', 'Ciencias Forestales'),
 (49, 4, 'CFM', 'vacio', 'Ciencias fisicas y matematicas'),
@@ -69,6 +71,7 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 (52, 4, 'Veterinaria', 'Veterinaria', 'Veterinaria'),
 (53, 4, 'Senior B', 'vacio', 'vacio'),
 (54, 4, 'Medicina B', 'Medicina', 'Medicina'),
+
 (55, 5, 'Facultad La Ballena', 'vacio', 'Ciencias naturales y oceanograficas'),
 (56, 5, 'Geologia', 'Geologia', 'Ciencias quimicas'),
 (57, 5, 'Enfermeria', 'Enfermeria', 'Enfermeria'),
@@ -77,8 +80,9 @@ INSERT INTO `equipos` (`id`, `divisionid`, `nombre`, `carrera`, `facultad`) VALU
 (60, 5, 'Auditoria', 'Auditoria', 'Ciencias economicas y administrativas'),
 (61, 5, 'Agronomia', 'Agronomia', 'Ciencias Forestales'),
 (62, 5, 'Kinesiologia B', 'Kinesiologia', 'Medicina'),
-(63, 5, 'Teconologia Medica', 'Teconologia Medica', 'Medicina'),
-(64, 5, 'Bioingenieria', 'Bioingenieria', 'vacio'),
+(63, 5, 'Informática', 'Ingeniería civil Informática', 'Ingeniería'),
+(64, 5, 'Biología', 'Ciencias biológicas', 'La ballena'),
+
 (65, 6, 'Melovers', 'Ingeniería civil Química', 'Ingeniería', NULL, NULL, NULL), 
 (66, 6, 'Tajo', 'Ingeniería civil Minas', 'Ingeniería', NULL, NULL, NULL), 
 (67, 6, 'Volátiles', 'Ingeniería civil Metalúrgica', 'Ingeniería', NULL, NULL, NULL), 
@@ -405,7 +409,23 @@ INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `
 (112, 35, 21, 1, 1, NULL, '2018-10-27', '18:00 hrs'),
 (113, 30, 31, 1, 1, NULL, '2018-10-27', '19:30 hrs')
 (114, 65, 66, 6, 2, 65, '2018-04-16', '14:00', NULL, NULL, NULL, '0'), 
-(115, 67, 68, 6, 2, 68, '2018-04-16', '14:45', NULL, NULL, NULL, '0');
+(115, 67, 68, 6, 2, 68, '2018-04-16', '14:45', NULL, NULL, NULL, '0'),
+(116, 37, 38, 3, 3, 37, '2018-05-05', '13:00', NULL, NULL, NULL, '0', 72, 52), 
+(117, 39, 40, 3, 3, 39, '2018-05-05', '14:00', NULL, NULL, NULL, '0', 50, 35), 
+(118, 41, 42, 3, 3, 41, '2018-05-05', '15:00', NULL, NULL, NULL, '0', 54, 47), 
+(119, 43, 44, 3, 3, 44, '2018-05-06', '12:00', NULL, NULL, NULL, '0', 55, 58), 
+(120, 45, 46, 3, 3, 45, '2018-05-06', '13:00', NULL, NULL, NULL, '0', 51, 50), 
+(121, 47, 48, 4, 3, 47, '2018-05-06', '14:00', NULL, NULL, NULL, '0', 55, 40), 
+(122, 49, 50, 4, 3, 50, '2018-05-06', '15:00', NULL, NULL, NULL, '0', 50, 60), 
+(123, 51, 52, 4, 3, 51, '2018-05-07', '12:00', NULL, NULL, NULL, '0', 50, 45), 
+(124, 53, 54, 4, 3, 53, '2018-05-07', '13:00', NULL, NULL, NULL, '0', 51, 50),
+(125, 55, 56, 5, 3, 56, '2018-05-07', '14:00', NULL, NULL, NULL, '0', 53, 55), 
+(126, 57, 58, 5, 3, 57, '2018-05-07', '15:00', NULL, NULL, NULL, '0', 60, 30), 
+(127, 59, 60, 5, 3, 60, '2018-05-08', '12:00', NULL, NULL, NULL, '0', 57, 45), 
+(128, 61, 62, 5, 3, 61, '2018-05-08', '13:00', NULL, NULL, NULL, '0', 70, 55), 
+(129, 63, 64, 5, 3, 64, '2018-05-08', '14:00', NULL, NULL, NULL, '0', 45, 52),
+(130, 69, 70, 6, 2, 69, '2018-04-17', '14:00', NULL, NULL, NULL, '0', 2, 1),
+(131, 71, 72, 6, 2, 72, '2018-04-17', '14:45', NULL, NULL, NULL, '0', 0, 6);
 
 
 INSERT INTO `arbitros` (`id`, `nombre`, `carrera`, `fecha_ingreso`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -464,6 +484,9 @@ INSERT INTO `partido_jugadors` (`partidoid`, `jugadorid`, `puntos`, `triples`, `
 (108, 14, 2, 0, 0, 0, 0, NULL, NULL, NULL), 
 (109, 54, 2, 0, 1, 0, 0, NULL, NULL, NULL);
 
-
+INSERT INTO `noticias` (`id`, `deporteid`, `texto`, `deleted_at`, `created_at`, `updated_at`, `titulo`) VALUES 
+(1, 1, 'Informática se prepara para enfrentar a su próximo rival, necesitan los 3 puntos para poder seguir subiendo en la tabla.', NULL, NULL, NULL, 'Informática ya tiene rival.'), 
+(2, 2, 'El equipo comandado por su gran figura busca la clasificación a la siguiente ronda del campeonato.', NULL, NULL, NULL, 'Volátiles en busca de la clasificación'), 
+(3, 3, 'El equipo azul de la tercera división del campeonato va por el paso a la final ante su similar de Biología.', NULL, NULL, NULL, 'Informática por la final');
 
 
