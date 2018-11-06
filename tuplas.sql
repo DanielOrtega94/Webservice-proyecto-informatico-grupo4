@@ -448,12 +448,14 @@ INSERT INTO `campeonatos` (`id`, `divisionid`, `ano`, `nombre`, `semestre`, `cam
 
 
 INSERT INTO `sanciones` (`id`, `jugadorid`, `tiempo`, `comentario`) VALUES
-(1, 36, '25 fechas', 'Por golpear al arbitro'),
-(2, 63, '2 fechas', 'Golpea bruscamente a jugador rival', NULL, NULL, NULL), 
-(3, 65, '4 fechas', 'Juego brusco grave', NULL, NULL, NULL), 
-(4, 22, '5 fechas', 'Conducta antideportiva', NULL, NULL, NULL), 
-(5, 23, '3 fechas', 'Por evitar con la mano que la pelota ingrese al arco', NULL, NULL, NULL), 
-(6, 13, '1 fecha', 'Doble amarilla', NULL, NULL, NULL);
+(1, 36, 25, 'Por golpear al arbitro'),
+(2, 63, 2, 'Golpea bruscamente a jugador rival', NULL, NULL, NULL), 
+(3, 65, 4, 'Juego brusco grave', NULL, NULL, NULL), 
+(4, 22, 5, 'Conducta antideportiva', NULL, NULL, NULL), 
+(5, 23, 3, 'Por evitar con la mano que la pelota ingrese al arco', NULL, NULL, NULL), 
+(6, 13, 1, 'Doble amarilla', NULL, NULL, NULL),
+(7, 184, 2, 'Juego brusco', NULL, NULL, NULL), 
+(8, 167, 3, 'Desaprueba al árbitro con groserías', NULL, NULL, NULL);
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`, `admin`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Daniel Ortega', 'chilotesensual@llamame.cl', 'elcostillaresmio', NULL, NULL, NULL, NULL),
