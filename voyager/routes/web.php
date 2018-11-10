@@ -31,7 +31,6 @@ Route::get('equipos','EquiposController@show');
 Route::get('jugadores','JugadoresController@show');
 Route::get('lugares','LugaresController@show');
 Route::get('partido_jugador','Partido_JugadorsController@show');
-Route::get('sanciones','SancionesController@show');
 Route::get('noticias','NoticiasController@show');
 Route::get('imagenes','ImagenesController@show');
 Route::get('partidos','PartidoController@show');
@@ -41,6 +40,11 @@ Route::get('basket','PartidoController@basket');
 Route::get('futbol_campeonato','PartidoController@futbol_campeonato');
 Route::get('basket_campeonato','PartidoController@basket_campeonato');
 
+Route::get('deporte/{id}','PartidoController@deporte');
+#Route::get('sanciones','SancionesController@show');
+Route::get('tabla_campeonato/{id}', 'CampeonatosController@tabla_campeonato');
+Route::get('tabla_sanciones','SancionesController@sanciones');
+Route::get('tabla_equipos/{id}','PartidoController@tabla_equipos');
 
 
 

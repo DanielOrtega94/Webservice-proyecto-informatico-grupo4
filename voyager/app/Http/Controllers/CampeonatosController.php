@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
  use App\Campeonato;
 class CampeonatosController extends Controller
@@ -56,9 +56,11 @@ class CampeonatosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function tabla_campeonato($id)
     {
-        //
+        $respuesta = DB::select(DB::raw("
+        select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = '$id' GROUP by e.nombre,j.nombre ORDER by sum(pj.puntos) desc"));
+        return response()->json($respuesta);
     }
 
     /**

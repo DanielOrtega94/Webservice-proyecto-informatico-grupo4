@@ -61,6 +61,7 @@ asd123
 
 
 
+
 CON RESPECTO A LA BASE DE DATOS DEBEMOS
 para obtener los nombres de  las restricciones hacemos 
 

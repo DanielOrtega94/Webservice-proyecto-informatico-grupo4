@@ -49,7 +49,7 @@ class PartidoController extends Controller
      public function show()
     {
         $usuarios=Partido::all();
-        return response()->json($usuarios);
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
 
       public function futbol()
@@ -61,17 +61,17 @@ class PartidoController extends Controller
             #array_push($respuesta,$partidos);
        }
 
-        return response()->json($partidos);
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
 
 
-      public function futbol_campeonato()
+      public function deporte($id)
     {
-        $respuesta = DB::select(DB::raw('SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
+        $respuesta = DB::select(DB::raw("SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
 FROM campeonatos as c ,divisiones as d, partidos as p 
-WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = 1'));
+WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = '$id'"));
 
-        return response()->json($respuesta );
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
 
 
@@ -82,10 +82,30 @@ WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = 1'));
         $respuesta = DB::select(DB::raw('SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
 FROM campeonatos as c ,divisiones as d, partidos as p 
 WHERE c.divisionid = d.id and p.divisionid = d.id and d.deporteid = 3'));
-        return response()->json($partidos);
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
         
     }
 
+
+public function tabla_equipos($id){
+
+    DB::statement('drop view partidos_ganados');
+
+
+    DB::statement("create VIEW partidos_ganados as
+    select e.nombre as Equipo, COUNT(e.nombre) as PG
+    from partidos as p, equipos as e , divisiones as d
+    where e.id = p.equipo_1 and d.id = e.divisionid and p.ganador=e.id and d.id = '$id' 
+    group by e.nombre");
+
+
+$respuesta = DB::select(DB::raw("select e.nombre as Equipo, COUNT(e.nombre) as PJ, pg.PG
+from partidos as p, equipos as e , divisiones as d, partidos_ganados as pg
+where e.id = p.equipo_1 and d.id = e.divisionid and  e.nombre = pg.Equipo and d.id = '$id' "));
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+
+
+}
 
      public function basket_campeonato()
     {

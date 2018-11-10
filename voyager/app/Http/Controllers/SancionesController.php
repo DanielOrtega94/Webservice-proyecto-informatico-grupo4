@@ -1,8 +1,7 @@
-
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
  use App\Sancione;
 class SancionesController extends Controller
@@ -47,7 +46,7 @@ class SancionesController extends Controller
     public function show()
     {
         $usuarios=sanciones::all();
-        return response()->json($usuarios);
+        return json_encode($usuarios, JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -56,9 +55,17 @@ class SancionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function sanciones()
     {
-        //
+         $respuesta = DB::select(DB::raw("
+        select j.nombre as Jugador, e.nombre as Equipo, s.tiempo as Fechas, s.comentario as Motivo 
+from sanciones as s, jugadores as j , equipos as e 
+where s.jugadorid = j.id and j.equipoid=e.id 
+order by s.tiempo desc"));
+        # return $respuesta->toJson(JSON_UNESCAPED_UNICODE);
+        #return response()->json($respuesta,JSON_UNESCAPED_UNICODE);
+         return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+        
     }
 
     /**
