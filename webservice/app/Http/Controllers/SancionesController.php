@@ -45,7 +45,7 @@ class SancionesController extends Controller
      */
     public function show()
     {
-        $usuarios=sanciones::all();
+        $usuarios=Sancione::all();
         return json_encode($usuarios, JSON_UNESCAPED_UNICODE);
     }
 

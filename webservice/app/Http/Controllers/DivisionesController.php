@@ -45,7 +45,7 @@ class DivisionesController extends Controller
      */
     public function show()
     {
-        $usuarios=divisiones::all();
+        $usuarios=Divisione::all();
         return response()->json($usuarios);
     }
 

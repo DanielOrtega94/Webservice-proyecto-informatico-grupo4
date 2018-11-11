@@ -45,7 +45,7 @@ class EquiposController extends Controller
      */
     public function show()
     {
-        $usuarios=equipos::all();
+        $usuarios=Equipo::all();
         return response()->json($usuarios);
     }
 

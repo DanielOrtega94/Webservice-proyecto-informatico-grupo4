@@ -45,7 +45,7 @@ class LugaresController extends Controller
      */
      public function show()
     {
-        $usuarios=lugares::all();
+        $usuarios=lugare::all();
         return response()->json($usuarios);
     }
 

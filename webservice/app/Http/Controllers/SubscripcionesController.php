@@ -45,7 +45,7 @@ class SubscripcionesController extends Controller
      */
     public function show()
     {
-         $usuarios=subscripciones::all();
+         $usuarios=Subscripcione::all();
         return response()->json($usuarios);
     }
 

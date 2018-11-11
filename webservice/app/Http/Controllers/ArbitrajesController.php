@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\arbitrajes;
+ use App\Arbitraje;
  
 class ArbitrajesController extends Controller
 {
@@ -47,7 +47,7 @@ class ArbitrajesController extends Controller
      
     public function show()
     {
-        $usuarios=arbitrajes::all();
+        $usuarios=Arbitraje::all();
         return response()->json($usuarios);
     }
 

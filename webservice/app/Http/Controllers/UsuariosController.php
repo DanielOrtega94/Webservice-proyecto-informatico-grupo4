@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\usuarios;
+use App\Usuario;
 class UsuariosController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class UsuariosController extends Controller
      */
     public function show()
     {
-        $usuarios=usuarios::all();
+        $usuarios=Usuario::all();
         return response()->json($usuarios);
     }
 

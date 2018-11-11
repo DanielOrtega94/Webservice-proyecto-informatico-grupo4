@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\imagenes;
+use App\Imagene;
 class ImagenesController extends Controller
 {
     /**
@@ -45,7 +45,7 @@ class ImagenesController extends Controller
      */
     public function show()
     {
-         $usuarios=imagenes::all();
+         $usuarios=Imagene::all();
         return response()->json($usuarios);
     }
 

@@ -45,7 +45,7 @@ class JugadoresController extends Controller
      */
     public function show()
     {
-        $usuarios=jugadores::all();
+        $usuarios=Jugadore::all();
         return response()->json($usuarios);
     }
 

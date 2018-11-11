@@ -45,7 +45,7 @@ class CampeonatosController extends Controller
      */
     public function show()
     {
-        $usuarios=campeonatos::all();
+        $usuarios=Campeonato::all();
         return response()->json($usuarios);
     }
 
@@ -67,7 +67,7 @@ class CampeonatosController extends Controller
 
       $respuesta = DB::select(DB::raw(" select e.divisionid ,e.id, pj.Equipo as Equipo, pj.PJ ,pg.PG ,  COALESCE(pp.PP,0) as PP, gt.GF,gt.GC, gt.GF-gt.GC as DIFGOLES
 from equipos as e, partidos_jugados as pj, goles_totales as gt, partidos_ganados as pg LEFT JOIN partidos_perdidos as pp
-on pg.id = pp.id where e.id = pj.id and  pj.id = pg.id and gt.id =pg.id and  e.id = '$division'"));
+on pg.id = pp.id where e.id = pj.id and  pj.id = pg.id and gt.id =pg.id and  e.divisionid = '$division'"));
         return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
 
