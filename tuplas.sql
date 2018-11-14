@@ -514,7 +514,21 @@ INSERT INTO `partido_jugadors` (`partidoid`, `jugadorid`, `puntos`, `triples`, `
 (129, 166, 21, 3, 0, 0, 3, NULL, NULL, NULL), 
 (129, 168, 30, 5, 0, 0, 4, NULL, NULL, NULL), 
 (129, 169, 20, 0, 0, 0, 0, NULL, NULL, NULL), 
-(129, 170, 2, 0, 0, 0, 2, NULL, NULL, NULL);
+(129, 170, 2, 0, 0, 0, 2, NULL, NULL, NULL),
+
+(137, 117, 25, 8, 0, 0, 3, NULL, NULL, NULL),
+(137, 118, 27, 2, 0, 0, 1, NULL, NULL, NULL),
+(137, 119, 3, 1, 0, 0, 0, NULL, NULL, NULL),
+(137, 123, 20, 3, 0, 0, 4, NULL, NULL, NULL),
+(137, 124, 10, 2, 0, 0, 3, NULL, NULL, NULL),
+(137, 125, 10, 1, 0, 0, 2, NULL, NULL, NULL),
+(138, 120, 30, 5, 0, 0, 2, NULL, NULL, NULL),
+(138, 121, 14, 2, 0, 0, 3, NULL, NULL, NULL),
+(138, 122, 6, 0, 0, 0, 2, NULL, NULL, NULL),
+(138, 126, 20, 3, 0, 0, 2, NULL, NULL, NULL),
+(138, 127, 14, 2, 0, 0, 3, NULL, NULL, NULL),
+(138, 128, 26, 3, 0, 0, 4, NULL, NULL, NULL)
+;
 
 INSERT INTO `noticias` (`id`, `deporteid`, `texto`, `deleted_at`, `created_at`, `updated_at`, `titulo`) VALUES 
 (1, 1, 'Informática se prepara para enfrentar a su próximo rival, necesitan los 3 puntos para poder seguir subiendo en la tabla.', NULL, NULL, NULL, 'Informática ya tiene rival.'), 
