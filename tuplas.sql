@@ -408,24 +408,43 @@ INSERT INTO `partidos` (`id`, `equipo_1`, `equipo_2`, `divisionid`, `lugarid`, `
 (111, 27, 28, 1, 1, NULL, '2018-10-27', '16:30 hrs', NULL, NULL, NULL, 1, 2, 2),
 (112, 35, 21, 1, 1, NULL, '2018-10-27', '18:00 hrs', NULL, NULL, NULL, 1, 3, 3),
 (113, 30, 31, 1, 1, NULL, '2018-10-27', '19:30 hrs', NULL, NULL, NULL, 1, 1, 1)
-(114, 65, 66, 6, 2, 65, '2018-04-16', '14:00', NULL, NULL, NULL, 0, 2, 0), 
-(115, 67, 68, 6, 2, 68, '2018-04-16', '14:45', NULL, NULL, NULL, 0, 0, 1),
-(116, 37, 38, 3, 3, 37, '2018-05-05', '13:00', NULL, NULL, NULL, 0, 72, 52), 
-(117, 39, 40, 3, 3, 39, '2018-05-05', '14:00', NULL, NULL, NULL, 0, 50, 35), 
-(118, 41, 42, 3, 3, 41, '2018-05-05', '15:00', NULL, NULL, NULL, 0, 54, 47), 
-(119, 43, 44, 3, 3, 44, '2018-05-06', '12:00', NULL, NULL, NULL, 0, 55, 58), 
-(120, 45, 46, 3, 3, 45, '2018-05-06', '13:00', NULL, NULL, NULL, 0, 51, 50), 
-(121, 47, 48, 4, 3, 47, '2018-05-06', '14:00', NULL, NULL, NULL, 0, 55, 40), 
-(122, 49, 50, 4, 3, 50, '2018-05-06', '15:00', NULL, NULL, NULL, 0, 50, 60), 
-(123, 51, 52, 4, 3, 51, '2018-05-07', '12:00', NULL, NULL, NULL, 0, 50, 45), 
-(124, 53, 54, 4, 3, 53, '2018-05-07', '13:00', NULL, NULL, NULL, 0, 51, 50),
-(125, 55, 56, 5, 3, 56, '2018-05-07', '14:00', NULL, NULL, NULL, 0, 53, 55), 
-(126, 57, 58, 5, 3, 57, '2018-05-07', '15:00', NULL, NULL, NULL, 0, 60, 30), 
-(127, 59, 60, 5, 3, 60, '2018-05-08', '12:00', NULL, NULL, NULL, 0, 57, 45), 
-(128, 61, 62, 5, 3, 61, '2018-05-08', '13:00', NULL, NULL, NULL, 0, 70, 55), 
-(129, 63, 64, 5, 3, 64, '2018-05-08', '14:00', NULL, NULL, NULL, 0, 45, 52),
-(130, 69, 70, 6, 2, 69, '2018-04-17', '14:00', NULL, NULL, NULL, 0, 2, 1),
-(131, 71, 72, 6, 2, 72, '2018-04-17', '14:45', NULL, NULL, NULL, 0, 0, 6);
+(114, 65, 66, 6, 2, 65, '2018-11-13', '14:00', NULL, NULL, NULL, 0, 2, 0), 
+(115, 67, 68, 6, 2, 68, '2018-11-13', '14:45', NULL, NULL, NULL, 0, 0, 1),
+(116, 37, 38, 3, 3, 37, '2018-11-13', '13:00', NULL, NULL, NULL, 0, 72, 52), 
+(117, 39, 40, 3, 3, 39, '2018-11-13', '14:00', NULL, NULL, NULL, 0, 50, 35), 
+(118, 41, 42, 3, 3, 41, '2018-11-14', '15:00', NULL, NULL, NULL, 0, 54, 47), 
+(119, 43, 44, 3, 3, 44, '2018-11-14', '12:00', NULL, NULL, NULL, 0, 55, 58), 
+(120, 45, 46, 3, 3, NULL, '2018-11-15', '13:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(121, 47, 48, 4, 3, 47, '2018-11-09', '14:00', NULL, NULL, NULL, 0, 55, 40), 
+(122, 49, 50, 4, 3, 50, '2018-11-09', '15:00', NULL, NULL, NULL, 0, 50, 60), 
+(123, 51, 52, 4, 3, 51, '2018-11-10', '12:00', NULL, NULL, NULL, 0, 50, 45), 
+(124, 53, 54, 4, 3, 53, '2018-11-10', '13:00', NULL, NULL, NULL, 0, 51, 50),
+(125, 55, 56, 5, 3, 56, '2018-11-09', '12:00', NULL, NULL, NULL, 0, 53, 55), 
+(126, 57, 58, 5, 3, 57, '2018-11-09', '13:00', NULL, NULL, NULL, 0, 60, 30), 
+(127, 59, 60, 5, 3, 60, '2018-11-10', '14:00', NULL, NULL, NULL, 0, 57, 45), 
+(128, 61, 62, 5, 3, 61, '2018-11-10', '12:00', NULL, NULL, NULL, 0, 70, 55), 
+(129, 63, 64, 5, 3, 64, '2018-11-11', '13:00', NULL, NULL, NULL, 0, 45, 52),
+(130, 69, 70, 6, 2, 69, '2018-11-14', '14:00', NULL, NULL, NULL, 0, 2, 1),
+(131, 71, 72, 6, 2, 72, '2018-11-14', '14:45', NULL, NULL, NULL, 0, 0, 6),
+(132, 37, 39, 3, 3, NULL, '2018-11-15', '14:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(133, 38, 40, 3, 3, NULL, '2018-11-16', '14:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(134, 41, 44, 3, 3, NULL, '2018-11-16', '15:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(135, 43, 46, 3, 3, NULL, '2018-11-17', '12:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(136, 45, 42, 3, 3, NULL, '2018-11-17', '13:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(137, 47, 49, 4, 3, 47, '2018-11-11', '14:00', NULL, NULL, NULL, 0, 55, 40), 
+(138, 48, 50, 4, 3, 50, '2018-11-11', '15:00', NULL, NULL, NULL, 0, 50, 60), 
+(139, 51, 54, 4, 3, NULL, '2018-11-16', '12:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(140, 53, 52, 4, 3, NULL, '2018-11-16', '13:00', NULL, NULL, NULL, 0, NULL, NULL),
+(141, 55, 58, 5, 3, 56, '2018-11-12', '12:00', NULL, NULL, NULL, 0, 53, 55), 
+(142, 57, 56, 5, 3, 57, '2018-11-12', '13:00', NULL, NULL, NULL, 0, 60, 30), 
+(143, 59, 64, 5, 3, 60, '2018-11-12', '14:00', NULL, NULL, NULL, 0, 57, 45), 
+(144, 61, 60, 5, 3, 61, '2018-11-13', '12:00', NULL, NULL, NULL, 0, 70, 55), 
+(145, 63, 62, 5, 3, 64, '2018-11-13', '13:00', NULL, NULL, NULL, 0, 45, 52),
+(146, 65, 68, 6, 2, NULL, '2018-11-15', '14:00', NULL, NULL, NULL, 0, NULL, NULL), 
+(147, 67, 66, 6, 2, NULL, '2018-11-15', '14:45', NULL, NULL, NULL, 0, NULL, NULL),
+(148, 69, 72, 6, 2, NULL, '2018-11-16', '14:00', NULL, NULL, NULL, 0, NULL, NULL),
+(149, 71, 70, 6, 2, NULL, '2018-11-16', '14:45', NULL, NULL, NULL, 0, NULL, NULL)
+;
 
 
 INSERT INTO `arbitros` (`id`, `nombre`, `carrera`, `fecha_ingreso`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -440,10 +459,10 @@ INSERT INTO `arbitrajes` (`partidoid`, `arbitroid`, `tipo`, `deleted_at`, `creat
 INSERT INTO `campeonatos` (`id`, `divisionid`, `ano`, `nombre`, `semestre`, `campeon`, `fecha_inicio`, `fecha_termino`, `reglamento`) VALUES
 (1, 1, 2018, 'Torneo de Verano', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
 (2, 2, 2018, 'Torneo de Verano Segunda Division', 'Segundo Semestre', NULL, '2018-08-27', '2018-12-15', NULL),
-(3, 3, 2018, 'Torneo Primera Division Basquetbol', 'Todo el año', NULL, '2018-03-15', '2018-12-03', NULL, NULL, NULL, NULL), 
-(4, 4, 2018, 'Torneo Segunda Division Basquetbol', 'Todo el año', NULL, '2018-03-12', '2018-12-09', NULL, NULL, NULL, NULL), 
-(5, 5, 2018, 'Torneo Tercera Division Basquetbol', 'Todo el año', NULL, '2018-03-12', '2018-12-16', NULL, NULL, NULL, NULL),
-(6, 6, 2018, 'Champions de Ingeniería', 'Primer Semestre', NULL, '2018-03-15', '2018-06-10', NULL, NULL, NULL, NULL);
+(3, 3, 2018, 'Torneo Primera Division Basquetbol', 'Segundo Semestre', NULL, '2018-10-25', '2018-12-16', NULL, NULL, NULL, NULL), 
+(4, 4, 2018, 'Torneo Segunda Division Basquetbol', 'Segundo Semestre', NULL, '2018-10-25', '2018-12-16', NULL, NULL, NULL, NULL), 
+(5, 5, 2018, 'Torneo Tercera Division Basquetbol', 'Segundo Semestre', NULL, '2018-10-25', '2018-12-16', NULL, NULL, NULL, NULL),
+(6, 6, 2018, 'Champions de Ingeniería', 'Segundo Semestre', NULL, '2018-10-15', '2018-12-15', NULL, NULL, NULL, NULL);
 
 
 
