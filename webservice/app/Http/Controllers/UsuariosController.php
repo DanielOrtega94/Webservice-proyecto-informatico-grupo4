@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use DB;
 class UsuariosController extends Controller
 {
     /**
@@ -82,4 +83,11 @@ class UsuariosController extends Controller
     {
         //
     }
+    public function login($id)
+    {
+        $respuesta = DB::select(DB::raw("select id,  nombre, password from usuarios where nombre = '$id'"));
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+    }
+
+   
 }

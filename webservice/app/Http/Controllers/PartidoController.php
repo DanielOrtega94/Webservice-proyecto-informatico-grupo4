@@ -67,9 +67,7 @@ class PartidoController extends Controller
 
       public function fechas_partidos($id)
     {
-        $respuesta = DB::select(DB::raw("SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato,ano,semestre,fecha_inicio ,fecha_termino,lugarid, equipo_1,equipo_2,fecha, hora,ganador,empate
-FROM campeonatos as c ,divisiones as d, partidos as p 
-WHERE c.divisionid = d.id and p.divisionid = d.id and c.divisionid = '$id'"));
+        $respuesta = DB::select(DB::raw("SELECT deporteid,d.id,d.nombre as division,c.nombre as campeonato, e1.nombre as equipo_1,e2.nombre as equipo_2,fecha, hora,ganador,empate, lu.nombre as lugar_id FROM campeonatos as c ,divisiones as d, partidos as p, equipos as e1, equipos as e2, lugares as lu WHERE c.divisionid = d.id and p.divisionid = d.id and c.divisionid = '$id' and p.equipo_1 = e1.id and p.equipo_2 = e2.id and lu.id = p.lugarid "));
 
         return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }

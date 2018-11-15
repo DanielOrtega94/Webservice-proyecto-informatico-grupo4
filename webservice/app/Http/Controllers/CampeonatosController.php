@@ -59,21 +59,30 @@ class CampeonatosController extends Controller
     public function tabla_goleador($id)
     {
         $respuesta = DB::select(DB::raw("
-        select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = '$id' GROUP by e.nombre,j.nombre ORDER by sum(pj.puntos) desc"));
+        select e.nombre as equipo ,j.nombre as jugador, SUM(pj.puntos) as goles from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = '$id' GROUP by e.nombre,j.nombre ORDER by sum(pj.puntos) desc"));
         return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
 
     public function tabla_equipos($division){
 
-      $respuesta = DB::select(DB::raw(" select e.divisionid ,e.id, pj.Equipo as Equipo, pj.PJ ,pg.PG ,  COALESCE(pp.PP,0) as PP, gt.GF,gt.GC, gt.GF-gt.GC as DIFGOLES
-from equipos as e, partidos_jugados as pj, goles_totales as gt, partidos_ganados as pg LEFT JOIN partidos_perdidos as pp
-on pg.id = pp.id where e.id = pj.id and  pj.id = pg.id and gt.id =pg.id and  e.divisionid = '$division'"));
+      $respuesta = DB::select(DB::raw(" select d.nombre ,e.id, PJ.Equipo as equipo, PJ.PJ as pj  ,PG.PG  as pg ,  COALESCE(PP.PP,0) as pp, GT.GF as gf ,GT.GC as gc , GT.GF-GT.GC as difgoles
+from equipos as e, partidos_jugados as PJ, goles_totales as GT, divisiones as d, partidos_ganados as PG LEFT JOIN partidos_perdidos as PP
+on PG.id = PP.id
+where e.id = PJ.id and  PJ.id = PG.id and GT.id =PG.id and e.divisionid = d.id and e.divisionid = '$division'"));
         return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
 
+    }
+    public function reglamento($deporte){
 
+        $respuesta = DB::select(DB::raw("select d.nombre,c.reglamento from campeonatos as c, divisiones as d where d.id =c.divisionid  and d.deporteid = '$deporte'"));
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
+    }
 
+    public function partidos_proximos(){
+    $respuesta = DB::select(DB::raw("select * from proximos"));
+        return json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
     }
 

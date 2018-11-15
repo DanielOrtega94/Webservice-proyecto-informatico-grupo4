@@ -1,93 +1,66 @@
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid  
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = 2 
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = 3
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = 4 
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = 5 
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-select e.nombre as Equipo ,j.nombre as Jugador, SUM(pj.puntos) AS Goles 
-from partido_jugadors as pj , partidos as p, divisiones as d , jugadores as j, equipos as e 
-where pj.partidoid = p.id and d.id= p.divisionid and pj.jugadorid = j.id and e.id = j.equipoid and d.id = 6 
-GROUP by e.nombre,j.nombre 
-ORDER by sum(pj.puntos) desc
-
-
-
-########################################################################################################################################
-
-
-
-select j.nombre as Jugador, e.nombre as Equipo, s.tiempo as Fechas, s.comentario as Motivo 
-from sanciones as s, jugadores as j , equipos as e 
-where s.jugadorid = j.id and j.equipoid=e.id 
-order by s.tiempo desc
-
-
-########################################################################################################################################
-
-
-
 create VIEW partidos_ganados as
-select e.nombre as Equipo, COUNT(e.nombre) as PG
+select e.id, e.nombre as Equipo, COUNT(p.ganador) as PG
 from partidos as p, equipos as e , divisiones as d
-where e.id = p.equipo_1 or e.id = p.equipo_2 and d.id = e.divisionid and p.ganador=e.id
-group by e.nombre;
+where  (d.id = e.divisionid and p.ganador=e.id) and (e.id = p.equipo_1  or e.id = p.equipo_2 )
+group by e.id;
+
 
 create VIEW partidos_jugados as
-select e.nombre as Equipo, COUNT(e.nombre) as PJ
+select e.id,e.nombre as Equipo, COUNT(e.nombre) as PJ
 from partidos as p, equipos as e , divisiones as d
-where e.id = p.equipo_1 or e.id = p.equipo_2 and d.id = e.divisionid 
-group by e.nombre;
+where  (d.id = e.divisionid) and (e.id = p.equipo_1  or e.id = p.equipo_2 )
+group by e.id;
 
-create VIEW partidos_empatados as
-select e.nombre as Equipo, COUNT(e.nombre) as PE
-from partidos as p, equipos as e , divisiones as d
-where e.id = p.equipo_1 or e.id = p.equipo_2 and d.id = e.divisionid and p.ganador = NULL
-group by e.nombre;
-
+#DATE(NOW())
 create VIEW partidos_perdidos as
-select e.nombre as Equipo, COUNT(e.nombre) as PP
+select e.id,e.nombre as Equipo, COUNT(e.nombre) as PP
 from partidos as p, equipos as e , divisiones as d
-where e.id = p.equipo_1 or e.id = p.equipo_2  and p.ganador<>e.id and d.id = e.divisionid 
-group by e.nombre;
+where  (d.id = e.divisionid and p.ganador <> e.id) and (e.id = p.equipo_1  or e.id = p.equipo_2 )
+group by e.id;
 
-create VIEW goles_a_Favor as
-select e.nombre as Equipo, sum(e.nombre) as PP
+create view goles_1 as
+select e.id ,e.nombre as Equipo, sum(p.m_local) as GF, sum(p.m_visita) as GC
 from partidos as p, equipos as e , divisiones as d
-where e.id = p.equipo_1 and p.ganador<>e.id and d.id = e.divisionid 
-group by e.nombre;
+where  (d.id = e.divisionid ) and (e.id = p.equipo_1)
+group by e.id;	
+
+create view goles_2 as
+select e.id ,e.nombre as Equipo, sum(p.m_visita) as GF, sum(p.m_local) as GC
+from partidos as p, equipos as e , divisiones as d
+where  (d.id = e.divisionid ) and (e.id = p.equipo_2)
+group by e.id;	
+
+create view goles_totales as
+SELECT g1.id ,g1.Equipo,
+COALESCE(g1.GF + g2.GF,0) as GF, 
+COALESCE(g1.GC+ g2.GC,0) as GC 
+FROM goles_1 as g1 LEFT JOIN goles_2 as g2 ON g1.id = g2.id
+group by g1.id;
+
+#malo
+create VIEW partidos_empatados as
+SELECT DISTINCT e1.id,e1.nombre as Equipo, COALESCE(COUNT(e1.id),0) as PE
+from   equipos as e1 LEFT JOIN partidos as p1 ON e1.id = p1.equipo_1, equipos as e2 LEFT JOIN partidos as p2 ON e2.id = p2.equipo_2
+where  (p1.ganador is NULL and DATE(NOW()) > p1.fecha) and (p2.ganador is NULL and DATE(NOW()) > p2.fecha) 
+group by e1.id;
+
+#malo
+create VIEW partidos_empatados as
+select e.id,e.nombre as Equipo, COALESCE(COUNT(e.nombre),0) as PE
+from  divisiones as d, partidos as p, equipos as e 
+where  (d.id = e.divisionid and p.ganador is NULL and DATE(NOW()) > fecha) and (e.id = p.equipo_1  or e.id = p.equipo_2 )
+group by e.id;
 
 
-Goles en Contra (GC)
-Diferencia de Goles (DIF)
+select e.divisionid ,e.id, pj.Equipo as Equipo, pj.PJ ,pg.PG ,  COALESCE(pp.PP,0), gt.GF,gt.GC, gt.GF-gt.GC as DIFGOLES
+from equipos as e, partidos_jugados as pj, goles_totales as gt, partidos_ganados as pg LEFT JOIN partidos_perdidos as pp
+on pg.id = pp.id
+where e.id = pj.id and  pj.id = pg.id and gt.id =pg.id
 
 
 
-select e.nombre as Equipo, COUNT(e.nombre) as PJ, pg.PG
-from partidos as p, equipos as e , divisiones as d, partidos_ganados as pg
-where e.id = p.equipo_1 and d.id = e.divisionid and  e.nombre = pg.Equipo and d.id = 1 
-GROUP by e.nombre
-
+create view  proximos as
+SELECT de.deporte,d.nombre,d.nombre as division,c.nombre as campeonato, e1.nombre as equipo_1,e2.nombre as equipo_2,fecha, hora, lu.nombre as lugar_id 
+FROM campeonatos as c ,divisiones as d, partidos as p, equipos as e1, equipos as e2, lugares as lu, deportes as de
+WHERE p.equipo_1 = e1.id and p.equipo_2 = e2.id and lu.id = p.lugarid and DATE(NOW()) < p.fecha and d.deporteid = de.id
+ORDER by  deporteid

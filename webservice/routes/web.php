@@ -45,3 +45,11 @@ Route::get('tabla_goleador/{id}', 'CampeonatosController@tabla_goleador');
 Route::get('tabla_equipos/{id}','CampeonatosController@tabla_equipos');
 #tabla sanciones
 Route::get('tabla_sanciones/{id}','SancionesController@sanciones');
+#REglamento
+Route::get('reglamento/{id}','CampeonatosController@reglamento');
+
+Route::get('proximos','CampeonatosController@partidos_proximos');
+
+Route::get('login/{id}','UsuariosController@login');
+
+
